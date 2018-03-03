@@ -1,12 +1,8 @@
-# User-specific stuff:
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/dictionaries
-
-## File-based project format:
+# Intellij files
+.idea
 *.iws
+*.iml
+*.ipr
 
-## Plugin-specific files:
-
-# IntelliJ
+# IntelliJ folders
 out/
