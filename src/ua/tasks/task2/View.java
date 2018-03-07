@@ -18,7 +18,7 @@ public class View {
     public static final String INPUT_MIN_BORDER_MESSAGE = "Input min border";
     public static final String INPUT_MAX_BORDER_MESSAGE = "Input max border";
     public static final String INPUT_INT_MESSAGE = "Input integer value:";
-    public static final String WRONG_INPUT_MESSAGE = "Wrong input! Repeat please";
+    public static final String WRONG_INPUT_MESSAGE = "Wrong input! Repeat please.";
     public static final String DEFINED_RANGE_MESSAGE = "Your range:";
     public static final String WRONG_INPUT_RANGE_MESSAGE = "You entered wrong range:";
     public static final String WRONG_RANGE_MESSAGE = "Wrong range! Repeat please, and select from correct range: ";
@@ -59,8 +59,8 @@ public class View {
         printMessage(INPUT_STATISTICS_MESSAGE, model.getStatistics().toString());
     }
 
-    public void printWrongIntInput(Model model) {
-        printMessage(WRONG_INPUT_MESSAGE, INPUT_INT_MESSAGE, rangeToString(model.getMinBorder(), model.getMaxBorder()));
+    public void printWrongIntInput() {
+        printMessage(WRONG_INPUT_MESSAGE, SPACE_SING, INPUT_INT_MESSAGE);
     }
 
     public void printWrongAttemptMessage() {
@@ -91,7 +91,8 @@ public class View {
         printMessage(INPUT_MAX_BORDER_MESSAGE);
     }
 
-    public void printWrongRangePaceMessage(int pace) {
-        printMessage(View.WRONG_RANGE_PACE_MESSAGE, Integer.toString(pace), WRONG_INPUT_RANGE_MESSAGE);
+    public void printWrongRangePaceMessage(int pace, int min, int max) {
+        printMessage(View.WRONG_RANGE_PACE_MESSAGE, Integer.toString(pace),
+                SPACE_SING, WRONG_INPUT_RANGE_MESSAGE, rangeToString(min, max));
     }
 }
