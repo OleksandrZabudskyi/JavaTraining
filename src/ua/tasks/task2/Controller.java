@@ -38,7 +38,7 @@ public class Controller {
         view.printIntInputMessage();
 
         while (!sc.hasNextInt()) {
-            view.printWrongIntInput(model);
+            view.printWrongIntInput();
             model.getStatistics().add(sc.next());
         }
         return sc.nextInt();
@@ -87,7 +87,7 @@ public class Controller {
             if (pace > 1) {
                 break;
             }
-            view.printWrongRangePaceMessage(pace);
+            view.printWrongRangePaceMessage(pace, min, max);
         }
         model.setBorders(min, max);
         model.generateRandomValue();
