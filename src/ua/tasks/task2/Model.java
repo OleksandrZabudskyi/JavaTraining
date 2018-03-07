@@ -3,7 +3,7 @@ package ua.tasks.task2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Service {
+public class Model {
     private int minBorder;
     private int maxBorder;
     private int randomValue;
