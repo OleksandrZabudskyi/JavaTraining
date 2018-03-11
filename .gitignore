@@ -1,6 +1,6 @@
 # Intellij files
-#*.iml
+*.iml
 
 # IntelliJ folders
-#/.idea/
-#/out/
+/.idea/
+/out/
