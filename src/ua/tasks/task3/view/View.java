@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 /**
  * Console presentation view in MVC pattern
  *
- * @autor Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 public class View implements Constants {
 

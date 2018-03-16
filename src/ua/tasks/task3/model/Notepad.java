@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Class for keeping records
  *
- * @autor Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 public class Notepad {
     private List<Contact> contacts = new ArrayList<>();
