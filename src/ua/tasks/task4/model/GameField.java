@@ -55,7 +55,6 @@ public class GameField {
         }
     }
 
-
     private boolean isWinner(List<Square> squares) {
         if (squares.size() == 0) {
             return false;
