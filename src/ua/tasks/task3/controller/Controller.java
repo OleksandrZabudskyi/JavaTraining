@@ -43,7 +43,6 @@ public class Controller {
     public void addContact(Map<String, String> map) {
         notepad.addContact(createContact(map));
         getContact(notepad.getContacts().size() - 1);
-
     }
 
     /**

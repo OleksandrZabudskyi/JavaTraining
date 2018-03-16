@@ -5,7 +5,7 @@ import ua.tasks.task3.model.Group;
 /**
  * Provide patterns for input data
  *
- * @autor Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 public interface RegExp {
     String NAME = "^[A-ZА-ЩЮЯҐІЇЄ][a-zA-ZА-ЩЬЮЯҐІЇЄа-щьюяґіїєʼ]*$";
