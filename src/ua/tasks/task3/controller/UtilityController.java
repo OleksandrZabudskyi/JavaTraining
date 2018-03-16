@@ -10,7 +10,7 @@ import java.util.Scanner;
 /**
  * Class is used for validating user data
  *
- * @autor Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 public class UtilityController {
     private Scanner scanner;
