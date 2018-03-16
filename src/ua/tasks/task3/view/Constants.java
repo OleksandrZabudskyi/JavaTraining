@@ -3,7 +3,7 @@ package ua.tasks.task3.view;
 /**
  * Class for string constants
  *
- * @autor Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 public interface Constants {
     String SPACE_SING = " ";

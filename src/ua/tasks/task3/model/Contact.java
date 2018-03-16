@@ -5,7 +5,7 @@ import java.time.LocalDate;
 /**
  * Class describes an information about contact
  *
- * @autor Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 public class Contact {
     private String lastName;

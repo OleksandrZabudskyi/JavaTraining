@@ -3,7 +3,7 @@ package ua.tasks.task3.model;
 /**
  * Class describes an information about address
  *
- * @autor Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 public class Address {
     private Integer index;
