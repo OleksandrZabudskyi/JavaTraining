@@ -33,18 +33,16 @@ public class GameField {
         addGamerMotion(square);
     }
 
-    public boolean isSquareOnFieldEmpty(Square square) {
-        return gameField[square.getX()][square.getY()].isSquareEmpty();
-    }
-
-
     private void addGamerMotion(Square square) {
         if (Token.CRISSCROSS.equals(square.getToken())) {
             crossGamerMotions.add(square);
         } else if (Token.ZERO.equals(square.getToken())) {
             zeroGamerMotions.add(square);
         }
+    }
 
+    public boolean isSquareOnFieldEmpty(Square square) {
+        return gameField[square.getX()][square.getY()].isSquareEmpty();
     }
 
     public Token getWinner() {
