@@ -10,6 +10,8 @@ import ua.tasks.task3.view.View;
 import java.time.LocalDateTime;
 import java.util.Map;
 
+import static ua.tasks.task3.view.Constants.*;
+
 /**
  * Realizes the controller of the MVC pattern
  * Class handles input data and sending result to view
@@ -64,11 +66,11 @@ public class Controller {
         Contact contact = new Contact();
         Address address = new Address();
         contact.setAddress(address);
-        contact.setFirstName(map.get(Constants.FIRST_NAME));
-        contact.setLastName(map.get(Constants.LAST_NAME));
-        contact.setAdditionalName(map.get(Constants.ADDITION_NAME));
-        contact.setNickName(map.get(Constants.NICKNAME));
-        contact.setComment(map.get(Constants.COMMENT));
+        contact.setFirstName(map.get(FIRST_NAME));
+        contact.setLastName(map.get(LAST_NAME));
+        contact.setAdditionalName(map.get(ADDITION_NAME));
+        contact.setNickName(map.get(NICKNAME));
+        contact.setComment(map.get(COMMENT));
 
         switch (Group.valueOf(map.get(Constants.GROUP))) {
             case FAMILY:
@@ -86,18 +88,18 @@ public class Controller {
             default:
                 contact.setGroup(Group.FRIENDS);
         }
-        contact.setHomePhone(map.get(Constants.HOME_PHONE));
-        contact.setMobilePhone(map.get(Constants.MOBILE_PHONE));
-        contact.setAdditionalMobilePhone(map.get(Constants.ADDITIONAL_MOBILE_PHONE));
-        contact.setEmail(map.get(Constants.EMAIL));
-        contact.setSkype(map.get(Constants.SKYPE));
+        contact.setHomePhone(map.get(HOME_PHONE));
+        contact.setMobilePhone(map.get(MOBILE_PHONE));
+        contact.setAdditionalMobilePhone(map.get(ADDITIONAL_MOBILE_PHONE));
+        contact.setEmail(map.get(EMAIL));
+        contact.setSkype(map.get(SKYPE));
         contact.setCreateDate(LocalDateTime.now().toLocalDate());
         contact.setModificationDate(LocalDateTime.now().toLocalDate());
-        address.setIndex(Integer.valueOf(map.get(Constants.INDEX)));
-        address.setCity(map.get(Constants.CITY));
-        address.setStreet(map.get(Constants.STREET));
-        address.setHouseNumber(map.get(Constants.HOUSE_NUMBER));
-        address.setApartmentNumber(Integer.valueOf(map.get(Constants.APARTMENT_NUMBER)));
+        address.setIndex(Integer.valueOf(map.get(INDEX)));
+        address.setCity(map.get(CITY));
+        address.setStreet(map.get(STREET));
+        address.setHouseNumber(map.get(HOUSE_NUMBER));
+        address.setApartmentNumber(Integer.valueOf(map.get(APARTMENT_NUMBER)));
         return contact;
     }
 }
