@@ -2,10 +2,12 @@ package ua.tasks.task4.controller;
 
 import ua.tasks.task4.entity.Gamer;
 import ua.tasks.task4.entity.Square;
-import ua.tasks.task4.view.Constants;
 import ua.tasks.task4.view.View;
 
 import java.util.Scanner;
+
+import static ua.tasks.task4.view.Constants.INPUT_X;
+import static ua.tasks.task4.view.Constants.INPUT_Y;
 
 /**
  * Class is used for validating user data
@@ -24,8 +26,8 @@ public class UserController {
     }
 
     public String fetchInputData() {
-        return view.concatenationString(validateInputData(View.bundle.getString(Constants.INPUT_X),
-                RegExp.NUMBER), validateInputData(View.bundle.getString(Constants.INPUT_Y), RegExp.NUMBER));
+        return view.concatenationString(validateInputData(View.bundle.getString(INPUT_X),
+                RegExp.NUMBER), validateInputData(View.bundle.getString(INPUT_Y), RegExp.NUMBER));
     }
 
     /**
