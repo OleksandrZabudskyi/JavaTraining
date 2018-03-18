@@ -3,6 +3,8 @@ package ua.tasks.task4.view;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import static ua.tasks.task4.view.Constants.*;
+
 /**
  * Console presentation view in MVC pattern
  *
@@ -40,26 +42,23 @@ public class View {
     }
 
     public void printStringInput(String message) {
-        printMessage(bundle.getString(Constants.INPUT_STRING_DATA), Constants.SPACE_SING, message,
-                Constants.FEEDLINE);
+        printMessage(bundle.getString(INPUT_STRING_DATA), SPACE_SING, message, FEEDLINE);
     }
 
     public void printWrongStringInput(String message) {
-        printMessage(bundle.getString(Constants.WRONG_INPUT_STRING_DATA), Constants.SPACE_SING, message,
-                Constants.FEEDLINE);
+        printMessage(bundle.getString(WRONG_INPUT_STRING_DATA), SPACE_SING, message, FEEDLINE);
     }
 
     public void printFieldNotEmpty() {
-        printMessage(bundle.getString(Constants.FIELD_IS_NOT_EMPTY));
+        printMessage(bundle.getString(FIELD_IS_NOT_EMPTY));
     }
 
     public void printGameField() {
-        printMessage(bundle.getString(Constants.VIEW_GAME_FIELD), Constants.FEEDLINE);
-        printMessage(Constants.XY, Constants.SPACE_SING, Constants.ZERO, Constants.SPACE_SING,
-                Constants.ONE, Constants.SPACE_SING, Constants.TWO, Constants.FEEDLINE);
+        printMessage(bundle.getString(VIEW_GAME_FIELD), FEEDLINE);
+        printMessage(XY, SPACE_SING, ZERO, SPACE_SING, ONE, SPACE_SING, TWO, FEEDLINE);
     }
 
     public void printWinner(String value) {
-        printMessage(bundle.getString(Constants.OUTPUT_WINNER), Constants.SPACE_SING, value);
+        printMessage(bundle.getString(OUTPUT_WINNER), SPACE_SING, value);
     }
 }

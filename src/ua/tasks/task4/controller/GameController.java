@@ -7,6 +7,8 @@ import ua.tasks.task4.model.GameField;
 import ua.tasks.task4.view.Constants;
 import ua.tasks.task4.view.View;
 
+import static ua.tasks.task4.view.Constants.*;
+
 /**
  * Class is used for validating user data
  *
@@ -22,9 +24,9 @@ public class GameController {
     }
 
     public void startGameProcess() {
-        Gamer firstGamer = new Gamer(Constants.FIRST_GAMER_NAME);
+        Gamer firstGamer = new Gamer(FIRST_GAMER_NAME);
         firstGamer.setToken(Token.CRISSCROSS);
-        Gamer secondGamer = new Gamer(Constants.SECOND_GAMER_NAME);
+        Gamer secondGamer = new Gamer(SECOND_GAMER_NAME);
         secondGamer.setToken(Token.ZERO);
         gameField.fillInFieldByEmptySquare();
         drawField();
@@ -40,7 +42,7 @@ public class GameController {
                 return;
             }
         }
-        view.printMessage(Constants.OUTPUT_DRAWN_GAME);
+        view.printMessage(OUTPUT_DRAWN_GAME);
     }
 
     private boolean checkIfGameOver(int motionNumber) {
@@ -49,7 +51,7 @@ public class GameController {
             return false;
         } else {
             view.printWinner(result.getValue());
-            view.printMessage(Constants.GAME_OVER);
+            view.printMessage(GAME_OVER);
             return true;
         }
     }
@@ -73,11 +75,11 @@ public class GameController {
     public void drawField() {
         view.printGameField();
         for (int i = 0; i < gameField.getGameField().length; i++) {
-            view.printMessage(Constants.SPACE_SING, String.valueOf(i), Constants.SPACE_SING, Constants.SPACE_SING);
+            view.printMessage(SPACE_SING, String.valueOf(i), SPACE_SING, SPACE_SING);
             for (int j = 0; j < gameField.getGameField()[i].length; j++) {
-                view.printMessage(gameField.getGameField()[i][j].getToken().getValue(), Constants.SPACE_SING);
+                view.printMessage(gameField.getGameField()[i][j].getToken().getValue(), SPACE_SING);
             }
-            view.printMessage(Constants.FEEDLINE);
+            view.printMessage(FEEDLINE);
         }
     }
 }
