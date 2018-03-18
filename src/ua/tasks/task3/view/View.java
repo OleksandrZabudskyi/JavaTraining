@@ -3,12 +3,14 @@ package ua.tasks.task3.view;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import static ua.tasks.task3.view.Constants.*;
+
 /**
  * Console presentation view in MVC pattern
  *
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
-public class View implements Constants {
+public class View {
 
     public static final String MESSAGES_BUNDLE_NAME ="ua.tasks.task3.resources.messages";
     public static final ResourceBundle bundle =
