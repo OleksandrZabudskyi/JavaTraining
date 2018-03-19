@@ -32,8 +32,10 @@ public class InputFormFilter implements Filter {
         String email = servletRequest.getParameter(EMAIL_PARAMETER);
 
         if (!(userName.matches(REGEX_NAME_LAT) && email.matches(REGEX_EMAIL))) {
-            servletRequest.setAttribute(MESSAGE, StringUtils.concatenate(
-                    INVALID_MESSAGE, userName, UNEQUAL_SIGN, REGEX_NAME_LAT, email, REGEX_EMAIL));
+            servletRequest.setAttribute(MESSAGE, StringUtils.concatenate(INVALID_MESSAGE,
+                    userName, UNEQUAL_SIGN, REGEX_NAME_LAT, SPACE_SIGN,
+                    email, UNEQUAL_SIGN, REGEX_EMAIL));
+
             servletRequest.getRequestDispatcher(INDEX_PAGE).forward(servletRequest, servletResponse);
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
