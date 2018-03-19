@@ -5,17 +5,26 @@ package ua.tasks.task4.entity;
  *
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
-public class Square extends Coordinates implements Cloneable {
+public class Square implements Cloneable {
+    private Coordinates coordinates;
     private Token token;
 
     public Square(int x, int y) {
-        super(x, y);
+        this.coordinates = new Coordinates(x, y);
         this.token = Token.EMPTY;
     }
 
     public Square(int x, int y, Token token) {
-        super(x, y);
+        this.coordinates = new Coordinates(x, y);
         this.token = token;
+    }
+
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
     }
 
     public Token getToken() {
@@ -34,16 +43,16 @@ public class Square extends Coordinates implements Cloneable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
 
         Square square = (Square) o;
 
+        if (coordinates != null ? !coordinates.equals(square.coordinates) : square.coordinates != null) return false;
         return token == square.token;
     }
 
     @Override
     public int hashCode() {
-        int result = super.hashCode();
+        int result = coordinates != null ? coordinates.hashCode() : 0;
         result = 31 * result + (token != null ? token.hashCode() : 0);
         return result;
     }
@@ -56,7 +65,8 @@ public class Square extends Coordinates implements Cloneable {
     @Override
     public String toString() {
         return "Square{" +
-                "token=" + token +
+                "coordinates=" + coordinates +
+                ", token=" + token +
                 '}';
     }
 }

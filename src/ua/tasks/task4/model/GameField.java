@@ -29,7 +29,7 @@ public class GameField {
     }
 
     public void updateSquareOnField(Square square) {
-        gameField[square.getX()][square.getY()] = square;
+        gameField[square.getCoordinates().getX()][square.getCoordinates().getY()] = square;
         addGamerMotion(square);
     }
 
@@ -42,7 +42,7 @@ public class GameField {
     }
 
     public boolean isSquareOnFieldEmpty(Square square) {
-        return gameField[square.getX()][square.getY()].isSquareEmpty();
+        return gameField[square.getCoordinates().getX()][square.getCoordinates().getY()].isSquareEmpty();
     }
 
     public Token getWinner() {
@@ -59,15 +59,15 @@ public class GameField {
         if (squares.size() == 0) {
             return false;
         }
-        int indexByX = squares.get(0).getX();
-        int indexByY = squares.get(0).getY();
+        int indexByX = squares.get(0).getCoordinates().getX();
+        int indexByY = squares.get(0).getCoordinates().getY();
         int sumByX = indexByX;
         int sumByY = indexByY;
         boolean equalByX = false;
         boolean equalByY = false;
         for (int i = 1; i < squares.size(); i++) {
-            int x = squares.get(i).getX();
-            int y = squares.get(i).getY();
+            int x = squares.get(i).getCoordinates().getX();
+            int y = squares.get(i).getCoordinates().getY();
             equalByX = (indexByX == x);
             equalByY = (indexByY == y);
             sumByX += x;
