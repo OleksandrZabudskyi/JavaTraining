@@ -1,10 +1,11 @@
 package ua.training;
 
 public interface Constants {
-    String SPACE_SING = " ";
+    String SPACE_SIGN = " ";
     String SEMICOLON = ";";
     String OPENS_BRACKET = "(";
     String CLOSING_BRACKET = ")";
+    String FEEDLINE = "\n";
     String UNEQUAL_SIGN = "!=";
     String ACTIVE = "active";
     String TRUE = "TRUE";
