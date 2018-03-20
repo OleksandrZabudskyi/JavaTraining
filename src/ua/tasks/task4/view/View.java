@@ -11,7 +11,7 @@ import static ua.tasks.task4.view.Constants.*;
  * @autor Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 public class View {
-    public static final String MESSAGES_BUNDLE_NAME ="ua.tasks.task4.resources.messages";
+    public static final String MESSAGES_BUNDLE_NAME = "ua.tasks.task4.resources.messages";
     public static final ResourceBundle bundle =
             ResourceBundle.getBundle(
                     MESSAGES_BUNDLE_NAME,
@@ -50,7 +50,7 @@ public class View {
     }
 
     public void printFieldNotEmpty() {
-        printMessage(bundle.getString(FIELD_IS_NOT_EMPTY));
+        printMessage(bundle.getString(FIELD_IS_NOT_EMPTY), FEEDLINE);
     }
 
     public void printGameField() {
@@ -59,6 +59,22 @@ public class View {
     }
 
     public void printWinner(String value) {
-        printMessage(bundle.getString(OUTPUT_WINNER), SPACE_SING, value);
+        printMessage(bundle.getString(OUTPUT_WINNER), value, FEEDLINE);
+    }
+
+    public void printGamerInput(String name, String token) {
+        printMessage(name, OPENS_BRACKET, token, CLOSING_BRACKET, FEEDLINE);
+    }
+
+    public void printGameOver() {
+        printMessage(bundle.getString(GAME_OVER));
+    }
+
+    public void printCoordinate(String coordinate) {
+        printMessage(SPACE_SING, coordinate, SPACE_SING, SPACE_SING);
+    }
+
+    public void printTokenOnField(String value) {
+        printMessage(value, SPACE_SING);
     }
 }

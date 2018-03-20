@@ -3,9 +3,11 @@ package ua.tasks.task4.view;
 /**
  * Class for string constants
  *
- * @autor Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 public interface Constants {
+    String OPENS_BRACKET = "(";
+    String CLOSING_BRACKET = ")";
     String SPACE_SING = " ";
     String FEEDLINE = "\n";
     String XY = "x\\y";

@@ -9,6 +9,11 @@ public class Gamer {
     private String name;
     private Token token;
 
+    public Gamer() {
+        this.name = Token.EMPTY.name();
+        this.token = Token.EMPTY;
+    }
+
     public Gamer(String name) {
         this.name = name;
     }
