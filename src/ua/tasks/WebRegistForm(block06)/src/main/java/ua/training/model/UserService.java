@@ -9,6 +9,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 import static ua.training.Constants.EXISTENCE_USER;
@@ -22,11 +23,13 @@ public class UserService {
     }
 
     public void addUser(User user) {
+        Objects.requireNonNull(user);
         user.setPassword(makePasswordHash(user.getPassword(), Integer.toString(getRandom().nextInt())));
         userDao.addUser(user);
     }
 
     public void validateUser(User user) throws UserAlreadyExistException {
+        Objects.requireNonNull(user);
         List<User> users = userDao.getUsers();
         for (User entity : users) {
             if (entity.getUserName().equals(user.getUserName())) {
