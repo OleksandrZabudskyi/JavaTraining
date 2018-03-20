@@ -6,8 +6,7 @@ import ua.tasks.task4.view.View;
 
 import java.util.Scanner;
 
-import static ua.tasks.task4.view.Constants.INPUT_X;
-import static ua.tasks.task4.view.Constants.INPUT_Y;
+import static ua.tasks.task4.view.Constants.*;
 
 /**
  * Class is used for validating user data
@@ -26,8 +25,10 @@ public class UserController {
     }
 
     public String fetchInputData() {
-        return view.concatenationString(validateInputData(View.bundle.getString(INPUT_X),
-                RegExp.NUMBER), validateInputData(View.bundle.getString(INPUT_Y), RegExp.NUMBER));
+        view.printGamerInput(gamer.getName(), gamer.getToken().getValue());
+        String inputX = validateInputData(View.bundle.getString(INPUT_X), RegExp.NUMBER);
+        String inputY = validateInputData(View.bundle.getString(INPUT_Y), RegExp.NUMBER);
+        return view.concatenationString(inputX, inputY);
     }
 
     /**

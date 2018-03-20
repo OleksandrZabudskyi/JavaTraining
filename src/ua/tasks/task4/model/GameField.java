@@ -1,10 +1,11 @@
 package ua.tasks.task4.model;
 
+import ua.tasks.task4.entity.Gamer;
 import ua.tasks.task4.entity.Square;
 import ua.tasks.task4.entity.Token;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Class is used for managing game process
@@ -13,8 +14,16 @@ import java.util.List;
  */
 public class GameField {
     private Square[][] gameField = new Square[3][3];
-    private List<Square> crossGamerMotions = new ArrayList<>();
-    private List<Square> zeroGamerMotions = new ArrayList<>();
+    private Gamer firstGamer;
+    private Gamer secondGamer;
+
+    public void setFirstGamer(Gamer firstGamer) {
+        this.firstGamer = firstGamer;
+    }
+
+    public void setSecondGamer(Gamer secondGamer) {
+        this.secondGamer = secondGamer;
+    }
 
     public Square[][] getGameField() {
         return gameField;
@@ -29,50 +38,64 @@ public class GameField {
     }
 
     public void updateSquareOnField(Square square) {
+        Objects.requireNonNull(square);
         gameField[square.getCoordinates().getX()][square.getCoordinates().getY()] = square;
-        addGamerMotion(square);
-    }
-
-    private void addGamerMotion(Square square) {
-        if (Token.CRISSCROSS.equals(square.getToken())) {
-            crossGamerMotions.add(square);
-        } else if (Token.ZERO.equals(square.getToken())) {
-            zeroGamerMotions.add(square);
-        }
     }
 
     public boolean isSquareOnFieldEmpty(Square square) {
+        Objects.requireNonNull(square);
         return gameField[square.getCoordinates().getX()][square.getCoordinates().getY()].isSquareEmpty();
     }
 
-    public Token getWinner() {
-        if (isWinner(crossGamerMotions)) {
-            return Token.CRISSCROSS;
-        } else if (isWinner(zeroGamerMotions)) {
-            return Token.ZERO;
+    public Gamer getWinner() {
+        Token winToken = getWinTokenOnField();
+
+        if (winToken.equals(firstGamer.getToken())) {
+            return firstGamer;
+        } else if (winToken.equals(secondGamer.getToken())) {
+            return secondGamer;
         } else {
-            return Token.EMPTY;
+            return new Gamer();
         }
     }
 
-    private boolean isWinner(List<Square> squares) {
-        if (squares.size() == 0) {
-            return false;
+    private Token getWinTokenOnField() {
+        Token[] backslash = new Token[3];
+        Token[] slash = new Token[3];
+
+        for (int i = 0; i < gameField.length; i++) {
+            Token[] horizontal = new Token[3];
+            Token[] vertical = new Token[3];
+            backslash[i] = gameField[i][i].getToken();
+            slash[i] = gameField[i][gameField.length - i - 1].getToken();
+
+            for (int j = 0; j < gameField[i].length; j++) {
+                horizontal[j] = gameField[i][j].getToken();
+                vertical[j] = gameField[j][i].getToken();
+            }
+
+            if (checkLineCombinationsInThree(horizontal)) {
+                return horizontal[0];
+            }
+
+            if (checkLineCombinationsInThree(vertical)) {
+                return vertical[0];
+            }
         }
-        int indexByX = squares.get(0).getCoordinates().getX();
-        int indexByY = squares.get(0).getCoordinates().getY();
-        int sumByX = indexByX;
-        int sumByY = indexByY;
-        boolean equalByX = false;
-        boolean equalByY = false;
-        for (int i = 1; i < squares.size(); i++) {
-            int x = squares.get(i).getCoordinates().getX();
-            int y = squares.get(i).getCoordinates().getY();
-            equalByX = (indexByX == x);
-            equalByY = (indexByY == y);
-            sumByX += x;
-            sumByY += y;
+
+        if (checkLineCombinationsInThree(backslash)) {
+            return backslash[0];
         }
-        return equalByX || equalByY || (sumByX == sumByY) && (sumByX == 3);
+
+        if (checkLineCombinationsInThree(slash)) {
+            return slash[0];
+        }
+        return Token.EMPTY;
+    }
+
+    private boolean checkLineCombinationsInThree(Token[] tokens) {
+        Objects.requireNonNull(tokens);
+        boolean tokensEqual = tokens[0].equals(tokens[1]) && tokens[1].equals(tokens[2]);
+        return !Token.EMPTY.equals(tokens[0]) && tokensEqual;
     }
 }
