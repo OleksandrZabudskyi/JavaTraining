@@ -10,6 +10,7 @@ import javax.servlet.http.*;
 import java.io.IOException;
 
 import static ua.training.Constants.*;
+import static ua.training.StringUtils.*;
 
 /**
  * Created by Zabudskyi Oleksandr zabudskyioleksandr@gmail.com on 3/13/18
@@ -27,12 +28,13 @@ public class Controller extends HttpServlet {
             String password = httpServletRequest.getParameter(PASSWORD_PARAMETER);
             UserService userService = new UserService();
             User user = new User(login, email, password);
-            userService.validateUser(user);
             userService.addUser(user);
+            User savedUser = userService.getUser(user.getUserName());
+            httpServletRequest.setAttribute(USER, savedUser);
             page = WELCOME_PAGE;
         } catch (UserAlreadyExistException e) {
             e.printStackTrace();
-            httpServletRequest.setAttribute(MESSAGE, e.getMessage());
+            httpServletRequest.setAttribute(MESSAGE, concatenate(e.getMessage(),EXISTENCE_USER));
             page = INDEX_PAGE;
         }
         RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(page);

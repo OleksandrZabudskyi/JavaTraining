@@ -17,5 +17,6 @@ public interface Constants {
     String EXISTENCE_USER = " user already exist. Please try another name";
     String WELCOME_PAGE = "/welcome.jsp";
     String INDEX_PAGE = "/index.jsp";
+    String USER = "user";
 
 }
