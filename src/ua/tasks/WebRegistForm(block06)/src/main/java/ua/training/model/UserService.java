@@ -23,13 +23,17 @@ public class UserService {
     }
 
     public void addUser(User user) {
-        Objects.requireNonNull(user);
+        if (user == null) {
+            return;
+        }
         user.setPassword(makePasswordHash(user.getPassword(), Integer.toString(getRandom().nextInt())));
         userDao.addUser(user);
     }
 
     public void validateUser(User user) throws UserAlreadyExistException {
-        Objects.requireNonNull(user);
+        if (user == null) {
+            return;
+        }
         List<User> users = userDao.getUsers();
         for (User entity : users) {
             if (entity.getUserName().equals(user.getUserName())) {
