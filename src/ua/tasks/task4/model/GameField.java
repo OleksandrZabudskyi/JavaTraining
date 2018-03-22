@@ -6,6 +6,7 @@ import ua.tasks.task4.entity.Token;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Class is used for managing game process
@@ -38,13 +39,14 @@ public class GameField {
     }
 
     public void updateSquareOnField(Square square) {
-        Objects.requireNonNull(square);
-        gameField[square.getCoordinates().getX()][square.getCoordinates().getY()] = square;
+        if (square != null) {
+            gameField[square.getCoordinates().getX()][square.getCoordinates().getY()] = square;
+        }
     }
 
     public boolean isSquareOnFieldEmpty(Square square) {
-        Objects.requireNonNull(square);
-        return gameField[square.getCoordinates().getX()][square.getCoordinates().getY()].isSquareEmpty();
+        return square != null
+                && gameField[square.getCoordinates().getX()][square.getCoordinates().getY()].isSquareEmpty();
     }
 
     public Gamer getWinner() {
@@ -94,7 +96,6 @@ public class GameField {
     }
 
     private boolean checkLineCombinationsInThree(Token[] tokens) {
-        Objects.requireNonNull(tokens);
         boolean tokensEqual = tokens[0].equals(tokens[1]) && tokens[1].equals(tokens[2]);
         return !Token.EMPTY.equals(tokens[0]) && tokensEqual;
     }
