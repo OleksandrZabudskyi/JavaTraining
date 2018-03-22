@@ -9,12 +9,12 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import java.util.Objects;
 import java.util.Random;
 
-import static ua.training.Constants.EXISTENCE_USER;
+import org.apache.log4j.Logger;
 
 public class UserService {
+    private static Logger logger = Logger.getLogger(UserService.class);
     private final ThreadLocal<Random> random = new ThreadLocal<>();
     private UserDao userDao;
 
@@ -22,23 +22,26 @@ public class UserService {
         this.userDao = new UserDao();
     }
 
-    public void addUser(User user) {
+    public void addUser(User user) throws UserAlreadyExistException {
         if (user == null) {
             return;
         }
         user.setPassword(makePasswordHash(user.getPassword(), Integer.toString(getRandom().nextInt())));
-        userDao.addUser(user);
+        userDao.insertUser(user);
+        printSavedUserToConsole(user);
     }
 
-    public void validateUser(User user) throws UserAlreadyExistException {
-        if (user == null) {
-            return;
-        }
-        List<User> users = userDao.getUsers();
-        for (User entity : users) {
-            if (entity.getUserName().equals(user.getUserName())) {
-                throw new UserAlreadyExistException(user.getUserName() + EXISTENCE_USER);
-            }
+    public User getUser(String userName) {
+        return userDao.findByName(userName);
+    }
+
+    public List<User> getUsers() {
+        return userDao.findAllUsers();
+    }
+
+    private void printSavedUserToConsole(User user) {
+        if (user != null) {
+            logger.info(user.toString());
         }
     }
 
@@ -65,6 +68,4 @@ public class UserService {
         }
         return result;
     }
-
-
 }
