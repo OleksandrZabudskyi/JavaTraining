@@ -21,7 +21,7 @@ public class UserMealsUtil {
                 filter(userMeal -> TimeUtil.isBetween(userMeal.getDateTime().toLocalTime(), startTime, endTime)).
                 map(userMeal -> new UserMealWithExceed(userMeal.getDateTime(),
                         userMeal.getDescription(), userMeal.getCalories(),
-                        sumCaloriesPerDay.get(userMeal.getDateTime().toLocalDate()) <= caloriesPerDay)).
+                        sumCaloriesPerDay.get(userMeal.getDateTime().toLocalDate()) > caloriesPerDay)).
                 collect(Collectors.toList());
 
         //Java 7 implementation:
@@ -31,7 +31,7 @@ public class UserMealsUtil {
         for (UserMeal userMeal : mealList) {
             LocalDate day = userMeal.getDateTime().toLocalDate();
             if (TimeUtil.isBetween(userMeal.getDateTime().toLocalTime(), startTime, endTime)) {
-                boolean exceeded = sumCaloriesPerDay.get(day) <= caloriesPerDay;
+                boolean exceeded = sumCaloriesPerDay.get(day) > caloriesPerDay;
                 userMealWithExceeds.add(
                         new UserMealWithExceed(userMeal.getDateTime(),
                                 userMeal.getDescription(), userMeal.getCalories(), exceeded));
