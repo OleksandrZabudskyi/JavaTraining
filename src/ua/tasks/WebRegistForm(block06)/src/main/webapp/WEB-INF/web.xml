@@ -12,7 +12,7 @@
   </servlet>
     <filter>
         <filter-name>InputFormFilter</filter-name>
-        <filter-class>ua.training.filter.InputFormFilter</filter-class>
+        <filter-class>ua.training.controller.filter.InputFormFilter</filter-class>
         <init-param>
             <param-name>active</param-name>
             <param-value>true</param-value>
