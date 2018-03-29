@@ -1,4 +1,4 @@
-package ua.training.filter;
+package ua.training.controller.filter;
 
 import ua.training.StringUtils;
 
@@ -6,16 +6,14 @@ import javax.servlet.*;
 import java.io.IOException;
 
 import static ua.training.Constants.*;
-import static ua.training.filter.RegexContainer.REGEX_EMAIL;
-import static ua.training.filter.RegexContainer.REGEX_NAME_LAT;
+import static ua.training.controller.filter.RegexContainer.REGEX_EMAIL;
+import static ua.training.controller.filter.RegexContainer.REGEX_NAME_LAT;
 
 public class InputFormFilter implements Filter {
-    private FilterConfig filterConfig;
     private boolean active = false;
 
     @Override
     public void init(FilterConfig filterConfig) {
-        this.filterConfig = filterConfig;
         String act = filterConfig.getInitParameter(ACTIVE);
         if (act != null)
             active = (act.toUpperCase().equals(TRUE));
@@ -45,6 +43,5 @@ public class InputFormFilter implements Filter {
 
     @Override
     public void destroy() {
-        filterConfig = null;
     }
 }
