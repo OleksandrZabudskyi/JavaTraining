@@ -8,6 +8,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.util.HashMap;
 
 import static ua.training.Constants.*;
 import static ua.training.StringUtils.*;
@@ -18,9 +19,14 @@ import static ua.training.StringUtils.*;
 public class Controller extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
+    public void init() throws ServletException {
+        super.init();
+    }
+
+
+    private void processRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
             throws ServletException, IOException {
-        String page = null;
+        String page;
 
         try {
             String login = httpServletRequest.getParameter(LOGIN_PARAMETER);
@@ -39,5 +45,17 @@ public class Controller extends HttpServlet {
         }
         RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(page);
         dispatcher.forward(httpServletRequest, httpServletResponse);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
+            throws ServletException, IOException {
+        processRequest(httpServletRequest, httpServletResponse);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
+            throws ServletException, IOException {
+        processRequest(httpServletRequest, httpServletResponse);
     }
 }
