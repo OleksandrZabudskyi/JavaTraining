@@ -1,4 +1,4 @@
-package ua.training.filter;
+package ua.training.controller.filter;
 
 public interface RegexContainer {
     String REGEX_NAME_UKR = "^[А-ЯІЇЄ][а-яіїє']{1,20}$";
