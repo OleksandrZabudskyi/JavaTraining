@@ -31,7 +31,7 @@ public class InputFormFilter implements Filter {
         String userName = servletRequest.getParameter(LOGIN_PARAMETER);
         String email = servletRequest.getParameter(EMAIL_PARAMETER);
 
-        if (!(userName.matches(REGEX_NAME_LAT) && email.matches(REGEX_EMAIL))) {
+        if (userName == null || email == null || !(userName.matches(REGEX_NAME_LAT) && email.matches(REGEX_EMAIL))) {
             servletRequest.setAttribute(MESSAGE, StringUtils.concatenate(INVALID_MESSAGE,
                     userName, UNEQUAL_SIGN, REGEX_NAME_LAT, SPACE_SIGN,
                     email, UNEQUAL_SIGN, REGEX_EMAIL));
