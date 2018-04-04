@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/src/ua/tasks/CollectionTest/CollectionTest.iml" filepath="$PROJECT_DIR$/src/ua/tasks/CollectionTest/CollectionTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/ua/tasks/IntermediateWebProject/IntermediateWeb.iml" filepath="$PROJECT_DIR$/src/ua/tasks/IntermediateWebProject/IntermediateWeb.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaTraining.iml" filepath="$PROJECT_DIR$/JavaTraining.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/ua/tasks/WebRegistForm(block06)/RegistrationForm.iml" filepath="$PROJECT_DIR$/src/ua/tasks/WebRegistForm(block06)/RegistrationForm.iml" />
     </modules>
   </component>
 </project>
