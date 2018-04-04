@@ -1,0 +1,22 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: alex
+  Date: 4/4/18
+  Time: 1:08 PM
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+    <html>
+    <head><title>Error</title></head>
+    <body>
+    <h3>Error</h3>
+    <hr/>
+    <jsp:expression>
+        (request.getAttribute("errorMessage") != null)
+        ? (String) request.getAttribute("errorMessage")
+        : "unknown error"</jsp:expression>
+    <hr/>
+    <a href="${pageContext.request.contextPath}/controller?act=load">Index page</a>
+    </body>
+    </html>
+</jsp:root>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="IntermediateWeb:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="IntermediateWeb.war">
+      <element id="artifact" artifact-name="IntermediateWeb:war exploded" />
+    </root>
+  </artifact>
+</component>
