@@ -2,13 +2,23 @@ package ua.training.model.bean;
 
 import java.math.BigDecimal;
 
-public abstract class LiabilityInsurance {
+public class LiabilityInsurance {
+    private Long id;
     private BigDecimal liabilityPrice;
     private Double risk;
 
-    public LiabilityInsurance(BigDecimal liabilityPrice, Double risk) {
+    public LiabilityInsurance(Long id, BigDecimal liabilityPrice, Double risk) {
+        this.id = id;
         this.liabilityPrice = liabilityPrice;
         this.risk = risk;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public BigDecimal getLiabilityPrice() {
@@ -34,6 +44,7 @@ public abstract class LiabilityInsurance {
 
         LiabilityInsurance that = (LiabilityInsurance) o;
 
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (liabilityPrice != null ? !liabilityPrice.equals(that.liabilityPrice) : that.liabilityPrice != null)
             return false;
         return risk != null ? risk.equals(that.risk) : that.risk == null;
@@ -41,7 +52,8 @@ public abstract class LiabilityInsurance {
 
     @Override
     public int hashCode() {
-        int result = liabilityPrice != null ? liabilityPrice.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (liabilityPrice != null ? liabilityPrice.hashCode() : 0);
         result = 31 * result + (risk != null ? risk.hashCode() : 0);
         return result;
     }

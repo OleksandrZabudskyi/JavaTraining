@@ -7,9 +7,9 @@ public class InvestmentInsurance extends LiabilityInsurance {
     private BigDecimal price;
     private Integer term;
 
-    public InvestmentInsurance(BigDecimal liabilityPrice, Double risk,
-                               String name, BigDecimal price, Integer term) {
-        super(liabilityPrice, risk);
+    public InvestmentInsurance(Long id, BigDecimal liabilityPrice,
+                               Double risk, String name, BigDecimal price, Integer term) {
+        super(id, liabilityPrice, risk);
         this.name = name;
         this.price = price;
         this.term = term;
@@ -42,6 +42,6 @@ public class InvestmentInsurance extends LiabilityInsurance {
     @Override
     public String toString() {
         return String.format(
-                "InvestmentInsurance [name=%s, price=%s, term=%s]", name, price, term);
+                "InvestmentInsurance(name=%s, price=%s, term=%s)", name, price, term);
     }
 }

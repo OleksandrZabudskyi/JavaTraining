@@ -8,9 +8,9 @@ public class MedicalInsurance extends LiabilityInsurance {
     private MedicalPackage medicalPackage;
     private BigDecimal valuePricePerDay;
 
-    public MedicalInsurance(BigDecimal liabilityPrice, Double risk,
-                            MedicalPackage medicalPackage, BigDecimal valuePricePerDay) {
-        super(liabilityPrice, risk);
+    public MedicalInsurance(Long id, BigDecimal liabilityPrice,
+                            Double risk, MedicalPackage medicalPackage, BigDecimal valuePricePerDay) {
+        super(id, liabilityPrice, risk);
         this.medicalPackage = medicalPackage;
         this.valuePricePerDay = valuePricePerDay;
     }
@@ -55,6 +55,6 @@ public class MedicalInsurance extends LiabilityInsurance {
     @Override
     public String toString() {
         return String.format(
-                "MedicalInsurance [medicalPackage=%s, valuePricePerDay=%s]", medicalPackage, valuePricePerDay);
+                "MedicalInsurance(medicalPackage=%s, valuePricePerDay=%s)", medicalPackage, valuePricePerDay);
     }
 }

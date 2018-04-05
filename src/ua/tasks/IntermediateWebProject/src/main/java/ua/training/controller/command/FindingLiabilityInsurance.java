@@ -11,26 +11,25 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Optional;
 
-import static ua.training.Constants.MESSAGE;
-import static ua.training.Constants.NOTHING_FOUND;
-import static ua.training.Constants.WELCOME_PAGE;
+import static ua.training.Constants.*;
 
 public class FindingLiabilityInsurance extends DerivativeAction implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page;
-        String price = request.getParameter("price");
-        String  risk = request.getParameter("risk");
+        String price = request.getParameter(PRICE);
+        String  risk = request.getParameter(RISK);
         DerivativeService derivativeService = getDerivativeService();
         if (price != null && risk != null) {
             Optional<LiabilityInsurance> liabilityInsurance =
                     derivativeService.findLiabilityInsurance(new BigDecimal(price), Double.valueOf(risk));
             if (liabilityInsurance.isPresent()) {
-                request.setAttribute("liabilities", Collections.singletonList(liabilityInsurance.get()));
+                request.setAttribute(LIABILITIES, Collections.singletonList(liabilityInsurance.get()));
             } else {
                 request.setAttribute(MESSAGE, NOTHING_FOUND);
             }
         }
+        request.setAttribute(TABLE_NAME, DERIVATIVE);
         page = WELCOME_PAGE;
         return page;
     }

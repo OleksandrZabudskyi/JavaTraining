@@ -9,14 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-import static ua.training.Constants.WELCOME_PAGE;
+import static ua.training.Constants.*;
 
 public class SortingLiabilities extends DerivativeAction implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page;
         DerivativeService derivativeService = getDerivativeService();
-        request.setAttribute("liabilities", derivativeService.sortLiabilityInDerivativeByRisk());
+        request.setAttribute(LIABILITIES, derivativeService.sortLiabilityInDerivativeByRisk());
+        request.setAttribute(MESSAGE, SORTED_BY_RISK);
+        request.setAttribute(TABLE_NAME, DERIVATIVE);
         page = WELCOME_PAGE;
         return page;
     }

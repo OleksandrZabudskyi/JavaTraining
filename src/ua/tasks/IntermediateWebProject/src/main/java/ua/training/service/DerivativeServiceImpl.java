@@ -2,6 +2,7 @@ package ua.training.service;
 
 import ua.training.model.bean.InsuranceDerivative;
 import ua.training.model.bean.LiabilityInsurance;
+import ua.training.model.db.InvestmentInsDB;
 import ua.training.model.db.MedicalInsDB;
 import ua.training.model.db.RealEstateInsDB;
 import ua.training.model.db.TransportInsDB;
@@ -22,6 +23,10 @@ public class DerivativeServiceImpl implements DerivativeService {
         return insuranceDerivative;
     }
 
+    public List<LiabilityInsurance> getLiabilityInsurancesFromDerivative() {
+        return insuranceDerivative.getLiabilityInsuranceList();
+    }
+
     @Override
     public List<LiabilityInsurance> getLiabilityInsurances() {
         List<LiabilityInsurance> list = new LinkedList<>();
@@ -34,6 +39,9 @@ public class DerivativeServiceImpl implements DerivativeService {
 
         for (TransportInsDB transportInsDB : TransportInsDB.values()) {
             list.add(transportInsDB.getTransportInsurance());
+        }
+        for (InvestmentInsDB investmentInsDB: InvestmentInsDB.values()) {
+            list.add(investmentInsDB.getInvestmentInsurance());
         }
         return list;
     }
