@@ -20,14 +20,12 @@ public class EncodingFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
             throws IOException, ServletException {
 
-        if (!active) {
-            filterChain.doFilter(servletRequest, servletResponse);
-        } else {
+        if (active) {
             servletResponse.setContentType("text/html");
             servletResponse.setCharacterEncoding("UTF-8");
             servletRequest.setCharacterEncoding("UTF-8");
-            filterChain.doFilter(servletRequest,servletResponse);
         }
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 
     @Override
