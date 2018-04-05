@@ -18,9 +18,9 @@ public class CreatingDerivative extends DerivativeAction implements Command {
 
         DerivativeService derivativeService = getDerivativeService();
         InsuranceDerivative insuranceDerivative = derivativeService.collectDerivative();
-        request.setAttribute("liabilities", insuranceDerivative.getLiabilityInsuranceList());
+        request.setAttribute(LIABILITIES, insuranceDerivative.getLiabilityInsuranceList());
         request.setAttribute(MESSAGE, DERIVATIVE_CREATED);
-        response.addCookie(new Cookie(DERIVATIVE,DERIVATIVE));
+        request.setAttribute(TABLE_NAME, DERIVATIVE);
         page = WELCOME_PAGE;
         return page;
     }

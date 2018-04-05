@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-import static ua.training.Constants.WELCOME_PAGE;
+import static ua.training.Constants.*;
 
 public class GettingDerivativePrice extends DerivativeAction implements Command {
     @Override
@@ -16,7 +16,9 @@ public class GettingDerivativePrice extends DerivativeAction implements Command 
         String page;
         DerivativeService derivativeService = getDerivativeService();
         BigDecimal derivativePrice = derivativeService.countDerivativePrice();
-        request.setAttribute("derivativePrice", derivativePrice.toString());
+        request.setAttribute(DERIVATIVE_PRICE, derivativePrice.toString());
+        request.setAttribute(LIABILITIES, derivativeService.getLiabilityInsurancesFromDerivative());
+        request.setAttribute(TABLE_NAME, DERIVATIVE);
         page = WELCOME_PAGE;
         return page;
     }

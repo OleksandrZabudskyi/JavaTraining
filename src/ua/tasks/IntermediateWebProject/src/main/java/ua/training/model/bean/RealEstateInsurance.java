@@ -6,9 +6,9 @@ public class RealEstateInsurance extends LiabilityInsurance {
     private String name;
     private BigDecimal valuationOfPropertyPrice;
 
-    public RealEstateInsurance(BigDecimal liabilityPrice, Double risk,
-                               String name, BigDecimal valuationOfPropertyPrice) {
-        super(liabilityPrice, risk);
+    public RealEstateInsurance(Long id, BigDecimal liabilityPrice,
+                               Double risk, String name, BigDecimal valuationOfPropertyPrice) {
+        super(id, liabilityPrice, risk);
         this.name = name;
         this.valuationOfPropertyPrice = valuationOfPropertyPrice;
     }
@@ -53,6 +53,6 @@ public class RealEstateInsurance extends LiabilityInsurance {
     @Override
     public String toString() {
         return String.format(
-                "RealEstateInsurance [name=%s, valuationOfPropertyPrice=%s]", name, valuationOfPropertyPrice);
+                "RealEstateInsurance(name=%s, valuationOfPropertyPrice=%s)", name, valuationOfPropertyPrice);
     }
 }

@@ -11,10 +11,9 @@ public class TransportInsurance extends LiabilityInsurance {
     private String name;
     private String model;
 
-    public TransportInsurance(BigDecimal liabilityPrice, Double risk,
-                              TransportType transportType, Integer termOfUsage,
-                              Integer distance, String name, String model) {
-        super(liabilityPrice, risk);
+    public TransportInsurance(Long id, BigDecimal liabilityPrice, Double risk, TransportType transportType,
+                              Integer termOfUsage, Integer distance, String name, String model) {
+        super(id, liabilityPrice, risk);
         this.transportType = transportType;
         this.termOfUsage = termOfUsage;
         this.distance = distance;
@@ -91,7 +90,7 @@ public class TransportInsurance extends LiabilityInsurance {
     @Override
     public String toString() {
         return String.format(
-                "TransportInsurance [transportType=%s, termOfUsage=%s, distance=%s, name=%s, model=%s]",
+                "TransportInsurance(transportType=%s, termOfUsage=%s, distance=%s, name=%s, model=%s)",
                 transportType, termOfUsage, distance, name, model);
     }
 }

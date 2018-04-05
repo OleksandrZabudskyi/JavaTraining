@@ -1,18 +1,42 @@
 package ua.training.model.db;
 
 import ua.training.model.bean.TransportInsurance;
+import ua.training.model.db.builder.TransportInsuranceBuilder;
 
 import java.math.BigDecimal;
 
 public enum TransportInsDB {
-    TRANSPORT_DB_FIRST(new TransportInsurance(new BigDecimal(200000000.00), 0.35,
-    TransportInsurance.TransportType.RAILWAY, 3500, 100000, "Locomotive", "Disel" )),
+    TRANSPORT_DB_FIRST(new TransportInsuranceBuilder()
+            .setId(1L)
+            .setLiabilityPrice(new BigDecimal(200000.00))
+            .setRisk(0.35)
+            .setTransportType(TransportInsurance.TransportType.RAILWAY)
+            .setTermOfUsage(3500)
+            .setDistance(100000)
+            .setName("LOCOMOTIVE")
+            .setModel("DIESEL")
+            .createTransportInsurance()),
 
-    TRANSPORT_DB_SECOND(new TransportInsurance(new BigDecimal(3000000.00), 0.6,
-    TransportInsurance.TransportType.GROUND, 3500, 150000, "Bus", "RUTA" )),
+    TRANSPORT_DB_SECOND(new TransportInsuranceBuilder()
+            .setId(2L)
+            .setLiabilityPrice(new BigDecimal(300000.00))
+            .setRisk(0.6)
+            .setTransportType(TransportInsurance.TransportType.GROUND)
+            .setTermOfUsage(3500)
+            .setDistance(150000)
+            .setName("BUS")
+            .setModel("ICARUS")
+            .createTransportInsurance()),
 
-    TRANSPORT_DB_THIRD(new TransportInsurance(new BigDecimal (50000000.00), 0.35,
-    TransportInsurance.TransportType.AIR, 3500, 1000000, "Plain", "Boeing 535" ));
+    TRANSPORT_DB_THIRD(new TransportInsuranceBuilder()
+            .setId(3L)
+            .setLiabilityPrice(new BigDecimal(500000.00))
+            .setRisk(0.35)
+            .setTransportType(TransportInsurance.TransportType.AIR)
+            .setTermOfUsage(3500)
+            .setDistance(100000)
+            .setName("AIRPLANE")
+            .setModel("BOEING 535").createTransportInsurance());
 
     private TransportInsurance transportInsurance;
 
