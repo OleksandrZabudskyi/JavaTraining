@@ -18,7 +18,7 @@ public class DerivativeServiceImpl implements DerivativeService {
     private static InsuranceDerivative insuranceDerivative = new InsuranceDerivative();
 
     @Override
-    public InsuranceDerivative collectDerivative() {
+    public InsuranceDerivative createDerivative() {
         insuranceDerivative.setLiabilityInsuranceList(getLiabilityInsurances());
         return insuranceDerivative;
     }

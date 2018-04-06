@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface DerivativeService {
-    InsuranceDerivative collectDerivative();
+    InsuranceDerivative createDerivative();
     List<LiabilityInsurance> getLiabilityInsurancesFromDerivative();
     BigDecimal countDerivativePrice();
     List<LiabilityInsurance> sortLiabilityInDerivativeByRisk();
