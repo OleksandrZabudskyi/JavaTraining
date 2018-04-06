@@ -14,14 +14,13 @@
 <body>
 
 <a href="${pageContext.request.contextPath}/controller">Logout</a>
-
+<c:set var="derId" value="${id}" />
 <c:if test="${tableName == 'Derivative'}">
     <div align="right">
             <form name="searchParamForm" method="POST" action="${pageContext.request.contextPath}/controller?act=find">
+                <input type="hidden" name="id" value="${derId}"/>
                 <label for="price">Liability Price:</label>
                 <input type="text" name="price" id="price" value=""/><br/>
-                <label for="risk">Risk:</label>
-                <input type="text" name="risk" id="risk" value=""/><br/>
                 <input type="submit" value="Find"/>
             </form>
         </div>
@@ -35,10 +34,10 @@
             <input type="submit" value="Create Derivative"/>
         </form>
     </div>
-
     <c:if test="${tableName == 'Derivative'}">
         <div style="display:inline-block;">
             <form name="getPrice" method="GET" action="${pageContext.request.contextPath}/controller">
+                <input type="hidden" name="id" value="${derId}"/>
                 <input type="hidden" name="act" value="getPrice"/>
                 <input type="submit" value="Count"/>
             </form>
@@ -47,6 +46,7 @@
 
         <div style="display:inline-block;">
             <form name="sort" method="GET" action="${pageContext.request.contextPath}/controller">
+                <input type="hidden" name="id" value="${derId}"/>
                 <input type="hidden" name="act" value="sort"/>
                 <input type="submit" value="Sort"/>
             </form>
@@ -61,7 +61,7 @@
 <div align="center">
     <table border="1" cellpadding="5">
         <c:if test="${tableName != null}">
-            <caption><h2>${tableName}</h2></caption>
+            <caption><h2>${tableName} ${idd}</h2></caption>
         </c:if>
         <tr>
             <th>Name</th>

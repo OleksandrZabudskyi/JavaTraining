@@ -12,6 +12,7 @@ public interface Constants {
     String PRICE = "price";
     String RISK = "risk";
     String ACT = "act";
+    String ID = "id";
     String ACTIVE = "active";
     String TRUE = "TRUE";
     String ERROR_MESSAGE = "errorMessage";

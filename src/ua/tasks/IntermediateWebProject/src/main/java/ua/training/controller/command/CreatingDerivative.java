@@ -16,7 +16,8 @@ public class CreatingDerivative extends DerivativeAction implements Command {
         String page;
 
         DerivativeService derivativeService = getDerivativeService();
-        InsuranceDerivative insuranceDerivative = derivativeService.createDerivative();
+        InsuranceDerivative insuranceDerivative = derivativeService.saveDerivative();
+        request.setAttribute(ID, insuranceDerivative.getId());
         request.setAttribute(LIABILITIES, insuranceDerivative.getLiabilityInsuranceList());
         request.setAttribute(MESSAGE, DERIVATIVE_CREATED);
         request.setAttribute(TABLE_NAME, DERIVATIVE);

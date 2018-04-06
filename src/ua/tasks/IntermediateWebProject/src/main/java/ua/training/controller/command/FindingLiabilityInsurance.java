@@ -1,5 +1,6 @@
 package ua.training.controller.command;
 
+import ua.training.model.bean.InsuranceDerivative;
 import ua.training.model.bean.LiabilityInsurance;
 import ua.training.service.DerivativeService;
 
@@ -18,17 +19,19 @@ public class FindingLiabilityInsurance extends DerivativeAction implements Comma
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page;
         String price = request.getParameter(PRICE);
-        String  risk = request.getParameter(RISK);
+        String id = request.getParameter(ID);
         DerivativeService derivativeService = getDerivativeService();
-        if (price != null && risk != null) {
+        if (price != null && id != null) {
             Optional<LiabilityInsurance> liabilityInsurance =
-                    derivativeService.findLiabilityInsurance(new BigDecimal(price), Double.valueOf(risk));
+                    derivativeService.findLiabilityInsurance(Integer.valueOf(id), new BigDecimal(price));
             if (liabilityInsurance.isPresent()) {
                 request.setAttribute(LIABILITIES, Collections.singletonList(liabilityInsurance.get()));
             } else {
                 request.setAttribute(MESSAGE, NOTHING_FOUND);
             }
         }
+        InsuranceDerivative insuranceDerivative = derivativeService.fetchInsuranceDerivative(Integer.valueOf(id));
+        request.setAttribute(ID, insuranceDerivative.getId());
         request.setAttribute(TABLE_NAME, DERIVATIVE);
         page = WELCOME_PAGE;
         return page;
