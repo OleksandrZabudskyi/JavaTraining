@@ -5,14 +5,14 @@ import ua.training.model.bean.InvestmentInsurance;
 import java.math.BigDecimal;
 
 public class InvestmentInsuranceBuilder {
-    private Long id;
+    private Integer id;
     private BigDecimal liabilityPrice;
     private Double risk;
     private String name;
     private BigDecimal price;
     private Integer term;
 
-    public InvestmentInsuranceBuilder setId(Long id) {
+    public InvestmentInsuranceBuilder setId(Integer id) {
         this.id = id;
         return this;
     }

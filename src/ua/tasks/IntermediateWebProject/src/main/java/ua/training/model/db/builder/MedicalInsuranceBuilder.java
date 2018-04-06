@@ -5,13 +5,13 @@ import ua.training.model.bean.MedicalInsurance;
 import java.math.BigDecimal;
 
 public class MedicalInsuranceBuilder {
-    private Long id;
+    private Integer id;
     private BigDecimal liabilityPrice;
     private Double risk;
     private MedicalInsurance.MedicalPackage medicalPackage;
     private BigDecimal valuePricePerDay;
 
-    public MedicalInsuranceBuilder setId(Long id) {
+    public MedicalInsuranceBuilder setId(Integer id) {
         this.id = id;
         return this;
     }

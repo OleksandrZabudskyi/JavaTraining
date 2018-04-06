@@ -7,21 +7,21 @@ import java.math.BigDecimal;
 
 public enum MedicalInsDB {
     MEDICAL_DB_FIRST(new MedicalInsuranceBuilder()
-            .setId(1L)
+            .setId(1)
             .setLiabilityPrice(new BigDecimal(11497.5))
             .setRisk(0.1)
             .setMedicalPackage(MedicalInsurance.MedicalPackage.STANDARD)
             .setValuePricePerDay(new BigDecimal(35.00))
             .createMedicalInsurance()),
     MEDICAL_DB_SECOND(new MedicalInsuranceBuilder()
-            .setId(2L)
+            .setId(2)
             .setLiabilityPrice(new BigDecimal(16425))
             .setRisk(0.1)
             .setMedicalPackage(MedicalInsurance.MedicalPackage.CLASSIC)
             .setValuePricePerDay(new BigDecimal(50.00))
             .createMedicalInsurance()),
     MEDICAL_DB_THIRD(new MedicalInsuranceBuilder()
-            .setId(3L)
+            .setId(3)
             .setLiabilityPrice(new BigDecimal(22995))
             .setRisk(0.1)
             .setMedicalPackage(MedicalInsurance.MedicalPackage.PREMIUM)

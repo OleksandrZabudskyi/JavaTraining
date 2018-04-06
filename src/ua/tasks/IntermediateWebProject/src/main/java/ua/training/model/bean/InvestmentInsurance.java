@@ -7,7 +7,7 @@ public class InvestmentInsurance extends LiabilityInsurance {
     private BigDecimal price;
     private Integer term;
 
-    public InvestmentInsurance(Long id, BigDecimal liabilityPrice,
+    public InvestmentInsurance(Integer id, BigDecimal liabilityPrice,
                                Double risk, String name, BigDecimal price, Integer term) {
         super(id, liabilityPrice, risk);
         this.name = name;
