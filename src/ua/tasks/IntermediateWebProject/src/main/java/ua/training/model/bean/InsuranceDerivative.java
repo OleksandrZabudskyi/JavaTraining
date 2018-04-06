@@ -24,6 +24,24 @@ public class InsuranceDerivative {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        InsuranceDerivative that = (InsuranceDerivative) o;
+
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        return liabilityInsuranceList != null ? liabilityInsuranceList.equals(that.liabilityInsuranceList) : that.liabilityInsuranceList == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (liabilityInsuranceList != null ? liabilityInsuranceList.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "InsuranceDerivative{" +
                 "liabilityInsuranceList=" + liabilityInsuranceList +

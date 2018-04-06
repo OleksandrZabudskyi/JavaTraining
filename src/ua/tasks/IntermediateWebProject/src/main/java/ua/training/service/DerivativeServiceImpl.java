@@ -2,10 +2,7 @@ package ua.training.service;
 
 import ua.training.model.bean.InsuranceDerivative;
 import ua.training.model.bean.LiabilityInsurance;
-import ua.training.model.db.InvestmentInsDB;
-import ua.training.model.db.MedicalInsDB;
-import ua.training.model.db.RealEstateInsDB;
-import ua.training.model.db.TransportInsDB;
+import ua.training.model.db.*;
 
 import java.math.BigDecimal;
 import java.util.Comparator;
@@ -15,16 +12,19 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class DerivativeServiceImpl implements DerivativeService {
-    private static InsuranceDerivative insuranceDerivative = new InsuranceDerivative();
+    private InsuranceDerivativeDB insuranceDerivativeDB;
 
-    @Override
-    public InsuranceDerivative createDerivative() {
-        insuranceDerivative.setLiabilityInsuranceList(fetchLiabilityInsurances());
-        return insuranceDerivative;
+    public DerivativeServiceImpl() {
+        this.insuranceDerivativeDB = InsuranceDerivativeDB.getInstance();
     }
 
-    public List<LiabilityInsurance> getLiabilityInsurancesFromDerivative() {
-        return insuranceDerivative.getLiabilityInsuranceList();
+    @Override
+    public InsuranceDerivative saveDerivative() {
+        InsuranceDerivative insuranceDerivative = new InsuranceDerivative();
+        insuranceDerivative.setLiabilityInsuranceList(fetchLiabilityInsurances());
+        insuranceDerivative.setId(1);
+        insuranceDerivativeDB.getInsuranceDerivativeList().put(1, insuranceDerivative);
+        return insuranceDerivative;
     }
 
     @Override
@@ -47,7 +47,13 @@ public class DerivativeServiceImpl implements DerivativeService {
     }
 
     @Override
-    public BigDecimal countDerivativePrice() {
+    public InsuranceDerivative fetchInsuranceDerivative(Integer id) {
+        return insuranceDerivativeDB.getInsuranceDerivativeList().get(id);
+    }
+
+    @Override
+    public BigDecimal countDerivativePrice(Integer derivativeId) {
+        InsuranceDerivative insuranceDerivative =fetchInsuranceDerivative(derivativeId);
         List<LiabilityInsurance> liabilityInsurances = insuranceDerivative.getLiabilityInsuranceList();
         BigDecimal count = new BigDecimal(0);
         for (LiabilityInsurance element : liabilityInsurances) {
@@ -57,16 +63,16 @@ public class DerivativeServiceImpl implements DerivativeService {
     }
 
     @Override
-    public List<LiabilityInsurance> sortLiabilityInDerivativeByRisk() {
-        List<LiabilityInsurance> list = insuranceDerivative.getLiabilityInsuranceList().stream()
+    public List<LiabilityInsurance> sortLiabilityInDerivativeByRisk(Integer derivativeId) {
+        InsuranceDerivative insuranceDerivative = fetchInsuranceDerivative(derivativeId);
+        return insuranceDerivative.getLiabilityInsuranceList().stream()
                 .sorted(Comparator.comparing(LiabilityInsurance::getRisk).reversed()).collect(Collectors.toList());
-        return list;
     }
 
     @Override
-    public Optional<LiabilityInsurance> findLiabilityInsurance(BigDecimal liabilityPrice, Double risk) {
+    public Optional<LiabilityInsurance> findLiabilityInsurance(Integer derivativeId, BigDecimal liabilityPrice) {
+        InsuranceDerivative insuranceDerivative = fetchInsuranceDerivative(derivativeId);
         return insuranceDerivative.getLiabilityInsuranceList().stream().
-                filter(liabilityInsurance -> liabilityInsurance.getLiabilityPrice().equals(liabilityPrice)
-                && liabilityInsurance.getRisk().equals(risk)).findFirst();
+                filter(liabilityInsurance -> liabilityInsurance.getLiabilityPrice().equals(liabilityPrice)).findFirst();
     }
 }

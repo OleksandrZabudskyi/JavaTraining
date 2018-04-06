@@ -17,9 +17,7 @@ public class SearchFormFilter implements Filter {
             throws IOException, ServletException {
         String action = servletRequest.getParameter(ACT);
         String price = servletRequest.getParameter(PRICE);
-        String risk = servletRequest.getParameter(RISK);
-        boolean invalidData = (price == null || risk == null
-                || !(price.matches(REGEX_DOUBLE) && price.matches(REGEX_DOUBLE)));
+        boolean invalidData = (price == null || !(price.matches(REGEX_DOUBLE)));
 
         if (FIND.equals(action) && invalidData) {
             servletRequest.setAttribute(MESSAGE, INVALID_MESSAGE);
