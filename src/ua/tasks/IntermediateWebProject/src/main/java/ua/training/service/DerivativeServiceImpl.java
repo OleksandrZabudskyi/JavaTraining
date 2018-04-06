@@ -40,7 +40,7 @@ public class DerivativeServiceImpl implements DerivativeService {
         for (TransportInsDB transportInsDB : TransportInsDB.values()) {
             list.add(transportInsDB.getTransportInsurance());
         }
-        for (InvestmentInsDB investmentInsDB: InvestmentInsDB.values()) {
+        for (InvestmentInsDB investmentInsDB : InvestmentInsDB.values()) {
             list.add(investmentInsDB.getInvestmentInsurance());
         }
         return list;
@@ -53,7 +53,7 @@ public class DerivativeServiceImpl implements DerivativeService {
 
     @Override
     public BigDecimal countDerivativePrice(Integer derivativeId) {
-        InsuranceDerivative insuranceDerivative =fetchInsuranceDerivative(derivativeId);
+        InsuranceDerivative insuranceDerivative = fetchInsuranceDerivative(derivativeId);
         List<LiabilityInsurance> liabilityInsurances = insuranceDerivative.getLiabilityInsuranceList();
         BigDecimal count = new BigDecimal(0);
         for (LiabilityInsurance element : liabilityInsurances) {
