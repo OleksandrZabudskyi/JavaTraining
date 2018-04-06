@@ -19,7 +19,7 @@ public class DerivativeServiceImpl implements DerivativeService {
 
     @Override
     public InsuranceDerivative createDerivative() {
-        insuranceDerivative.setLiabilityInsuranceList(getLiabilityInsurances());
+        insuranceDerivative.setLiabilityInsuranceList(fetchLiabilityInsurances());
         return insuranceDerivative;
     }
 
@@ -28,7 +28,7 @@ public class DerivativeServiceImpl implements DerivativeService {
     }
 
     @Override
-    public List<LiabilityInsurance> getLiabilityInsurances() {
+    public List<LiabilityInsurance> fetchLiabilityInsurances() {
         List<LiabilityInsurance> list = new LinkedList<>();
         for (RealEstateInsDB realEstateInsDB : RealEstateInsDB.values()) {
             list.add(realEstateInsDB.getRealEstateInsurance());
