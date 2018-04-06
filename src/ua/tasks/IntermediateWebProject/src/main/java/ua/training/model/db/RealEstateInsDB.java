@@ -7,21 +7,21 @@ import java.math.BigDecimal;
 
 public enum RealEstateInsDB {
     REAL_ESTATE_FIRST(new RealEstateInsuranceBuilder()
-            .setId(1L)
+            .setId(1)
             .setLiabilityPrice(new BigDecimal(27500))
             .setRisk(0.45)
             .setName("FURNITURE")
             .setValuationOfPropertyPrice(new BigDecimal(50000))
             .createRealEstateInsurance()),
     REAL_ESTATE_SECOND(new RealEstateInsuranceBuilder()
-            .setId(2L)
+            .setId(2)
             .setLiabilityPrice(new BigDecimal(40000))
             .setRisk(0.6)
             .setName("ELECTRICAL APPLIANCES")
             .setValuationOfPropertyPrice(new BigDecimal(100000))
             .createRealEstateInsurance()),
     REAL_ESTATE_THIRD(new RealEstateInsuranceBuilder()
-            .setId(3L)
+            .setId(3)
             .setLiabilityPrice(new BigDecimal(2000))
             .setRisk(0.8)
             .setName("GLASSES AND MIRRORS")

@@ -8,7 +8,7 @@ public class MedicalInsurance extends LiabilityInsurance {
     private MedicalPackage medicalPackage;
     private BigDecimal valuePricePerDay;
 
-    public MedicalInsurance(Long id, BigDecimal liabilityPrice,
+    public MedicalInsurance(Integer id, BigDecimal liabilityPrice,
                             Double risk, MedicalPackage medicalPackage, BigDecimal valuePricePerDay) {
         super(id, liabilityPrice, risk);
         this.medicalPackage = medicalPackage;

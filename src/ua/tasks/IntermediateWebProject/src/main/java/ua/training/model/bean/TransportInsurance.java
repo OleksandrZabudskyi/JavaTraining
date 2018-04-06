@@ -11,7 +11,7 @@ public class TransportInsurance extends LiabilityInsurance {
     private String name;
     private String model;
 
-    public TransportInsurance(Long id, BigDecimal liabilityPrice, Double risk, TransportType transportType,
+    public TransportInsurance(Integer id, BigDecimal liabilityPrice, Double risk, TransportType transportType,
                               Integer termOfUsage, Integer distance, String name, String model) {
         super(id, liabilityPrice, risk);
         this.transportType = transportType;

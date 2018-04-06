@@ -4,7 +4,16 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class InsuranceDerivative {
+    private Integer id;
     private List<LiabilityInsurance> liabilityInsuranceList = new LinkedList<>();
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public List<LiabilityInsurance> getLiabilityInsuranceList() {
         return liabilityInsuranceList;

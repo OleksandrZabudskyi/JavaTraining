@@ -2,22 +2,22 @@ package ua.training.model.bean;
 
 import java.math.BigDecimal;
 
-public class LiabilityInsurance {
-    private Long id;
+public abstract class LiabilityInsurance {
+    private Integer id;
     private BigDecimal liabilityPrice;
     private Double risk;
 
-    public LiabilityInsurance(Long id, BigDecimal liabilityPrice, Double risk) {
+    public LiabilityInsurance(Integer id, BigDecimal liabilityPrice, Double risk) {
         this.id = id;
         this.liabilityPrice = liabilityPrice;
         this.risk = risk;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 public enum TransportInsDB {
     TRANSPORT_DB_FIRST(new TransportInsuranceBuilder()
-            .setId(1L)
+            .setId(1)
             .setLiabilityPrice(new BigDecimal(200000.00))
             .setRisk(0.35)
             .setTransportType(TransportInsurance.TransportType.RAILWAY)
@@ -18,7 +18,7 @@ public enum TransportInsDB {
             .createTransportInsurance()),
 
     TRANSPORT_DB_SECOND(new TransportInsuranceBuilder()
-            .setId(2L)
+            .setId(2)
             .setLiabilityPrice(new BigDecimal(300000.00))
             .setRisk(0.6)
             .setTransportType(TransportInsurance.TransportType.GROUND)
@@ -29,7 +29,7 @@ public enum TransportInsDB {
             .createTransportInsurance()),
 
     TRANSPORT_DB_THIRD(new TransportInsuranceBuilder()
-            .setId(3L)
+            .setId(3)
             .setLiabilityPrice(new BigDecimal(500000.00))
             .setRisk(0.35)
             .setTransportType(TransportInsurance.TransportType.AIR)
