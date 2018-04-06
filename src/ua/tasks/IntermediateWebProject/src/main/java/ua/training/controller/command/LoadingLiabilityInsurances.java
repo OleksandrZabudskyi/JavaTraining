@@ -4,7 +4,6 @@ import ua.training.model.bean.LiabilityInsurance;
 import ua.training.service.DerivativeService;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -17,7 +16,7 @@ public class LoadingLiabilityInsurances extends DerivativeAction implements Comm
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page;
         DerivativeService derivativeService = getDerivativeService();
-        List<LiabilityInsurance> list = derivativeService.getLiabilityInsurances();
+        List<LiabilityInsurance> list = derivativeService.fetchLiabilityInsurances();
         request.setAttribute(LIABILITIES, list);
         request.setAttribute(TABLE_NAME, LIABILITY_INSURANCES);
         page = WELCOME_PAGE;

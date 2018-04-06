@@ -13,5 +13,5 @@ public interface DerivativeService {
     BigDecimal countDerivativePrice();
     List<LiabilityInsurance> sortLiabilityInDerivativeByRisk();
     Optional<LiabilityInsurance> findLiabilityInsurance(BigDecimal liabilityPrice, Double risk);
-    List<LiabilityInsurance> getLiabilityInsurances();
+    List<LiabilityInsurance> fetchLiabilityInsurances();
 }
