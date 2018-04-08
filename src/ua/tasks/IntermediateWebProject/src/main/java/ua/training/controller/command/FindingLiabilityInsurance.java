@@ -3,8 +3,7 @@ package ua.training.controller.command;
 import ua.training.model.bean.InsuranceDerivative;
 import ua.training.model.bean.LiabilityInsurance;
 import ua.training.model.service.DerivativeService;
-import ua.training.util.AttributeConstant;
-import ua.training.util.PageConstant;
+import ua.training.model.service.DerivativeServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,28 +13,43 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Optional;
 
+import static ua.training.util.RegexConstant.REGEX_DOUBLE;
+import static ua.training.util.AttributeConstant.*;
+import static ua.training.util.AttributeConstant.PRICE;
 import static ua.training.util.MassageConstant.*;
+import static ua.training.util.PageConstant.ERROR_PAGE;
+import static ua.training.util.PageConstant.WELCOME_PAGE;
 
-public class FindingLiabilityInsurance extends DerivativeAction implements Command {
+public class FindingLiabilityInsurance implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page;
-        String price = request.getParameter(AttributeConstant.PRICE);
-        String id = request.getParameter(AttributeConstant.ID);
-        DerivativeService derivativeService = getDerivativeService();
-        if (price != null && id != null) {
+        String price = request.getParameter(PRICE);
+        String id = request.getParameter(ID);
+
+        DerivativeService derivativeService = new DerivativeServiceImpl();
+
+        if ((price == null || !price.matches(REGEX_DOUBLE))) {
+            request.setAttribute(MESSAGE, INVALID_MESSAGE);
+        } else {
             Optional<LiabilityInsurance> liabilityInsurance =
-                    derivativeService.findLiabilityInsurance(Integer.valueOf(id), new BigDecimal(price));
+                    derivativeService.findLiabilityInsurance(Integer.parseInt(id), new BigDecimal(price));
             if (liabilityInsurance.isPresent()) {
-                request.setAttribute(AttributeConstant.LIABILITIES, Collections.singletonList(liabilityInsurance.get()));
+                request.setAttribute(LIABILITIES, Collections.singletonList(liabilityInsurance.get()));
             } else {
                 request.setAttribute(MESSAGE, NOTHING_FOUND);
             }
         }
-        InsuranceDerivative insuranceDerivative = derivativeService.fetchInsuranceDerivative(Integer.valueOf(id));
-        request.setAttribute(AttributeConstant.ID, insuranceDerivative.getId());
-        request.setAttribute(AttributeConstant.TABLE_NAME, AttributeConstant.DERIVATIVE);
-        page = PageConstant.WELCOME_PAGE;
+
+        if (id != null) {
+            InsuranceDerivative insuranceDerivative = derivativeService.fetchInsuranceDerivative(Integer.parseInt(id));
+            request.setAttribute(ID, insuranceDerivative.getId());
+            request.setAttribute(TABLE_NAME, DERIVATIVE);
+            page = WELCOME_PAGE;
+        } else {
+            request.setAttribute(ERROR_MESSAGE, WRONG_ATTRIBUTE);
+            page = ERROR_PAGE;
+        }
         return page;
     }
 }

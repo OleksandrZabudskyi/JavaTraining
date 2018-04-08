@@ -5,7 +5,7 @@ import ua.training.model.bean.TransportInsurance;
 import java.math.BigDecimal;
 
 public class TransportInsuranceBuilder {
-    private Integer id;
+    private int id;
     private BigDecimal liabilityPrice;
     private Double risk;
     private TransportInsurance.TransportType transportType;
@@ -14,7 +14,7 @@ public class TransportInsuranceBuilder {
     private String name;
     private String model;
 
-    public TransportInsuranceBuilder setId(Integer id) {
+    public TransportInsuranceBuilder setId(int id) {
         this.id = id;
         return this;
     }

@@ -10,5 +10,6 @@ public interface MassageConstant {
     String SORTED_BY_RISK = "Liabilities in derivative are sorted by risk";
     String FIND = "find";
     String NOTHING_FOUND = "Nothing found";
+    String WRONG_ATTRIBUTE = "Wrong attribute parameters";
 
 }

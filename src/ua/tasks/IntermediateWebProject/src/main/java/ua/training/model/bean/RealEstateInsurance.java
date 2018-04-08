@@ -6,7 +6,7 @@ public class RealEstateInsurance extends LiabilityInsurance {
     private String name;
     private BigDecimal valuationOfPropertyPrice;
 
-    public RealEstateInsurance(Integer id, BigDecimal liabilityPrice,
+    public RealEstateInsurance(int id, BigDecimal liabilityPrice,
                                Double risk, String name, BigDecimal valuationOfPropertyPrice) {
         super(id, liabilityPrice, risk);
         this.name = name;

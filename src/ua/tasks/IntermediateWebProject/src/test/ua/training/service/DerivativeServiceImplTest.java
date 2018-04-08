@@ -1,4 +1,4 @@
-package ua.training.service;
+package ua.training.model.service;
 
 import org.junit.Before;
 import org.junit.Test;

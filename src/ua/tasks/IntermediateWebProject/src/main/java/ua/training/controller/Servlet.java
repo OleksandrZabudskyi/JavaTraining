@@ -13,7 +13,7 @@ import static ua.training.util.MassageConstant.*;
 /**
  * Created by Zabudskyi Oleksandr zabudskyioleksandr@gmail.com on 3/29/18
  */
-public class Controller extends HttpServlet {
+public class Servlet extends HttpServlet {
     private CommandExtractor commandExtractor;
 
     @Override

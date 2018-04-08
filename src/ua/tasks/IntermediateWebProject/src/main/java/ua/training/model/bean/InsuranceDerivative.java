@@ -4,14 +4,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class InsuranceDerivative {
-    private Integer id;
+    private int id;
     private List<LiabilityInsurance> liabilityInsuranceList = new LinkedList<>();
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -30,13 +30,13 @@ public class InsuranceDerivative {
 
         InsuranceDerivative that = (InsuranceDerivative) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (id != that.id) return false;
         return liabilityInsuranceList != null ? liabilityInsuranceList.equals(that.liabilityInsuranceList) : that.liabilityInsuranceList == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result = id;
         result = 31 * result + (liabilityInsuranceList != null ? liabilityInsuranceList.hashCode() : 0);
         return result;
     }
