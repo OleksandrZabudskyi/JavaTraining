@@ -8,7 +8,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
     <servlet-name>Controller</servlet-name>
-    <servlet-class>ua.training.controller.Controller</servlet-class>
+    <servlet-class>ua.training.controller.Servlet</servlet-class>
   </servlet>
     <filter>
         <filter-name>EncodingFilter</filter-name>
@@ -18,10 +18,6 @@
             <param-value>true</param-value>
         </init-param>
     </filter>
-    <filter>
-        <filter-name>SearchFormFilter</filter-name>
-        <filter-class>ua.training.controller.filter.SearchFormFilter</filter-class>
-    </filter>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/controller</url-pattern>
@@ -29,10 +25,6 @@
 
     <filter-mapping>
         <filter-name>EncodingFilter</filter-name>
-        <servlet-name>Controller</servlet-name>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>SearchFormFilter</filter-name>
         <servlet-name>Controller</servlet-name>
     </filter-mapping>
     <welcome-file-list>

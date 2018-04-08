@@ -3,21 +3,21 @@ package ua.training.model.bean;
 import java.math.BigDecimal;
 
 public abstract class LiabilityInsurance {
-    private Integer id;
+    private int id;
     private BigDecimal liabilityPrice;
-    private Double risk;
+    private double risk;
 
-    public LiabilityInsurance(Integer id, BigDecimal liabilityPrice, Double risk) {
+    public LiabilityInsurance(int id, BigDecimal liabilityPrice, double risk) {
         this.id = id;
         this.liabilityPrice = liabilityPrice;
         this.risk = risk;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -29,11 +29,11 @@ public abstract class LiabilityInsurance {
         this.liabilityPrice = liabilityPrice;
     }
 
-    public Double getRisk() {
+    public double getRisk() {
         return risk;
     }
 
-    public void setRisk(Double risk) {
+    public void setRisk(double risk) {
         this.risk = risk;
     }
 
@@ -44,17 +44,19 @@ public abstract class LiabilityInsurance {
 
         LiabilityInsurance that = (LiabilityInsurance) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (liabilityPrice != null ? !liabilityPrice.equals(that.liabilityPrice) : that.liabilityPrice != null)
-            return false;
-        return risk != null ? risk.equals(that.risk) : that.risk == null;
+        if (id != that.id) return false;
+        if (Double.compare(that.risk, risk) != 0) return false;
+        return liabilityPrice != null ? liabilityPrice.equals(that.liabilityPrice) : that.liabilityPrice == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result;
+        long temp;
+        result = id;
         result = 31 * result + (liabilityPrice != null ? liabilityPrice.hashCode() : 0);
-        result = 31 * result + (risk != null ? risk.hashCode() : 0);
+        temp = Double.doubleToLongBits(risk);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
 

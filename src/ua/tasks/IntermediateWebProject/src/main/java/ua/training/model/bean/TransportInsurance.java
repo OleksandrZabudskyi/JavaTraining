@@ -6,12 +6,12 @@ public class TransportInsurance extends LiabilityInsurance {
     public enum TransportType {RAILWAY, GROUND, WATER, AIR}
 
     private TransportType transportType;
-    private Integer termOfUsage;
-    private Integer distance;
+    private int termOfUsage;
+    private int distance;
     private String name;
     private String model;
 
-    public TransportInsurance(Integer id, BigDecimal liabilityPrice, Double risk, TransportType transportType,
+    public TransportInsurance(int id, BigDecimal liabilityPrice, Double risk, TransportType transportType,
                               Integer termOfUsage, Integer distance, String name, String model) {
         super(id, liabilityPrice, risk);
         this.transportType = transportType;
@@ -29,19 +29,19 @@ public class TransportInsurance extends LiabilityInsurance {
         this.transportType = transportType;
     }
 
-    public Integer getTermOfUsage() {
+    public int getTermOfUsage() {
         return termOfUsage;
     }
 
-    public void setTermOfUsage(Integer termOfUsage) {
+    public void setTermOfUsage(int termOfUsage) {
         this.termOfUsage = termOfUsage;
     }
 
-    public Integer getDistance() {
+    public int getDistance() {
         return distance;
     }
 
-    public void setDistance(Integer distance) {
+    public void setDistance(int distance) {
         this.distance = distance;
     }
 
@@ -69,9 +69,9 @@ public class TransportInsurance extends LiabilityInsurance {
 
         TransportInsurance that = (TransportInsurance) o;
 
+        if (termOfUsage != that.termOfUsage) return false;
+        if (distance != that.distance) return false;
         if (transportType != that.transportType) return false;
-        if (termOfUsage != null ? !termOfUsage.equals(that.termOfUsage) : that.termOfUsage != null) return false;
-        if (distance != null ? !distance.equals(that.distance) : that.distance != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         return model != null ? model.equals(that.model) : that.model == null;
     }
@@ -80,8 +80,8 @@ public class TransportInsurance extends LiabilityInsurance {
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + (transportType != null ? transportType.hashCode() : 0);
-        result = 31 * result + (termOfUsage != null ? termOfUsage.hashCode() : 0);
-        result = 31 * result + (distance != null ? distance.hashCode() : 0);
+        result = 31 * result + termOfUsage;
+        result = 31 * result + distance;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (model != null ? model.hashCode() : 0);
         return result;

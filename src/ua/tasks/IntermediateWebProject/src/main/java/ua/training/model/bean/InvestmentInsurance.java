@@ -5,10 +5,10 @@ import java.math.BigDecimal;
 public class InvestmentInsurance extends LiabilityInsurance {
     private String name;
     private BigDecimal price;
-    private Integer term;
+    private int term;
 
-    public InvestmentInsurance(Integer id, BigDecimal liabilityPrice,
-                               Double risk, String name, BigDecimal price, Integer term) {
+    public InvestmentInsurance(int id, BigDecimal liabilityPrice,
+                               Double risk, String name, BigDecimal price, int term) {
         super(id, liabilityPrice, risk);
         this.name = name;
         this.price = price;
@@ -31,11 +31,11 @@ public class InvestmentInsurance extends LiabilityInsurance {
         this.price = price;
     }
 
-    public Integer getTerm() {
+    public int getTerm() {
         return term;
     }
 
-    public void setTerm(Integer term) {
+    public void setTerm(int term) {
         this.term = term;
     }
 

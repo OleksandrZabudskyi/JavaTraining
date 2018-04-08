@@ -47,12 +47,12 @@ public class DerivativeServiceImpl implements DerivativeService {
     }
 
     @Override
-    public InsuranceDerivative fetchInsuranceDerivative(Integer id) {
+    public InsuranceDerivative fetchInsuranceDerivative(int id) {
         return insuranceDerivativeDB.getInsuranceDerivativeList().get(id);
     }
 
     @Override
-    public BigDecimal countDerivativePrice(Integer derivativeId) {
+    public BigDecimal countDerivativePrice(int derivativeId) {
         InsuranceDerivative insuranceDerivative = fetchInsuranceDerivative(derivativeId);
         List<LiabilityInsurance> liabilityInsurances = insuranceDerivative.getLiabilityInsuranceList();
         BigDecimal count = new BigDecimal(0);
@@ -63,14 +63,14 @@ public class DerivativeServiceImpl implements DerivativeService {
     }
 
     @Override
-    public List<LiabilityInsurance> sortLiabilityInDerivativeByRisk(Integer derivativeId) {
+    public List<LiabilityInsurance> sortLiabilityInDerivativeByRisk(int derivativeId) {
         InsuranceDerivative insuranceDerivative = fetchInsuranceDerivative(derivativeId);
         return insuranceDerivative.getLiabilityInsuranceList().stream()
                 .sorted(Comparator.comparing(LiabilityInsurance::getRisk).reversed()).collect(Collectors.toList());
     }
 
     @Override
-    public Optional<LiabilityInsurance> findLiabilityInsurance(Integer derivativeId, BigDecimal liabilityPrice) {
+    public Optional<LiabilityInsurance> findLiabilityInsurance(int derivativeId, BigDecimal liabilityPrice) {
         InsuranceDerivative insuranceDerivative = fetchInsuranceDerivative(derivativeId);
         return insuranceDerivative.getLiabilityInsuranceList().stream().
                 filter(liabilityInsurance -> liabilityInsurance.getLiabilityPrice().equals(liabilityPrice)).findFirst();

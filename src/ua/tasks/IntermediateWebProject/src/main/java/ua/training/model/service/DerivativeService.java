@@ -10,13 +10,13 @@ import java.util.Optional;
 public interface DerivativeService {
     InsuranceDerivative saveDerivative();
 
-    BigDecimal countDerivativePrice(Integer derivativeId);
+    BigDecimal countDerivativePrice(int derivativeId);
 
-    List<LiabilityInsurance> sortLiabilityInDerivativeByRisk(Integer derivativeId);
+    List<LiabilityInsurance> sortLiabilityInDerivativeByRisk(int derivativeId);
 
-    Optional<LiabilityInsurance> findLiabilityInsurance(Integer derivativeId, BigDecimal liabilityPrice);
+    Optional<LiabilityInsurance> findLiabilityInsurance(int derivativeId, BigDecimal liabilityPrice);
 
     List<LiabilityInsurance> fetchLiabilityInsurances();
 
-    InsuranceDerivative fetchInsuranceDerivative(Integer derivativeId);
+    InsuranceDerivative fetchInsuranceDerivative(int derivativeId);
 }
