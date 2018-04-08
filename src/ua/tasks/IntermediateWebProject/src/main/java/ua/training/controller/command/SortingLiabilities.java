@@ -1,14 +1,12 @@
 package ua.training.controller.command;
 
 import ua.training.model.bean.InsuranceDerivative;
-import ua.training.service.DerivativeService;
-import ua.training.service.DerivativeServiceImpl;
+import ua.training.model.service.DerivativeService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 import static ua.training.Constants.*;
 

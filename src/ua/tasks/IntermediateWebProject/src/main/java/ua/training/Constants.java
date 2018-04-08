@@ -10,7 +10,6 @@ public interface Constants {
     String LIABILITIES = "liabilities";
     String DERIVATIVE_PRICE = "derivativePrice";
     String PRICE = "price";
-    String RISK = "risk";
     String ACT = "act";
     String ID = "id";
     String ACTIVE = "active";
