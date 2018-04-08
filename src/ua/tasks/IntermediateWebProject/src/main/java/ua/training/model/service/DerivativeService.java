@@ -1,4 +1,4 @@
-package ua.training.service;
+package ua.training.model.service;
 
 import ua.training.model.bean.InsuranceDerivative;
 import ua.training.model.bean.LiabilityInsurance;

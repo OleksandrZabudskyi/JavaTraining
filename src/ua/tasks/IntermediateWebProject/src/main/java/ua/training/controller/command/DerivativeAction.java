@@ -1,7 +1,7 @@
 package ua.training.controller.command;
 
-import ua.training.service.DerivativeService;
-import ua.training.service.DerivativeServiceImpl;
+import ua.training.model.service.DerivativeService;
+import ua.training.model.service.DerivativeServiceImpl;
 
 abstract class DerivativeAction {
     private DerivativeService derivativeService;

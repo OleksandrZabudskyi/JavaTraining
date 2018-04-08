@@ -1,7 +1,7 @@
 package ua.training.controller.command;
 
 import ua.training.model.bean.InsuranceDerivative;
-import ua.training.service.DerivativeService;
+import ua.training.model.service.DerivativeService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
