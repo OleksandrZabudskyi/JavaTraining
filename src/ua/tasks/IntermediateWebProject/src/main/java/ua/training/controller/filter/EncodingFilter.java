@@ -4,7 +4,7 @@ package ua.training.controller.filter;
 import javax.servlet.*;
 import java.io.IOException;
 
-import static ua.training.Constants.*;
+import static ua.training.util.MassageConstant.*;
 
 public class EncodingFilter implements Filter {
     private boolean active = false;

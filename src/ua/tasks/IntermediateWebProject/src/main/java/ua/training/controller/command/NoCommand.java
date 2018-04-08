@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static ua.training.Constants.INDEX_PAGE;
+import static ua.training.util.PageConstant.INDEX_PAGE;
 
 public class NoCommand implements Command {
     @Override

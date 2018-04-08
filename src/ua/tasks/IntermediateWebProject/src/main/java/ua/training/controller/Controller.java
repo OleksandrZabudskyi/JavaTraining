@@ -1,13 +1,14 @@
 package ua.training.controller;
 
 import ua.training.controller.command.*;
+import ua.training.util.PageConstant;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-import static ua.training.Constants.*;
+import static ua.training.util.MassageConstant.*;
 
 /**
  * Created by Zabudskyi Oleksandr zabudskyioleksandr@gmail.com on 3/29/18
@@ -31,7 +32,7 @@ public class Controller extends HttpServlet {
             //TODO Add to log file
             e.printStackTrace();
             httpServletRequest.setAttribute(ERROR_MESSAGE, e.getMessage());
-            page = ERROR_PAGE;
+            page = PageConstant.ERROR_PAGE;
         }
         RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(page);
         dispatcher.forward(httpServletRequest, httpServletResponse);
