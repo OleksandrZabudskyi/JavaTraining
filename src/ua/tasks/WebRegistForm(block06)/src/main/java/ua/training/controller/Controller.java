@@ -8,9 +8,8 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.util.HashMap;
 
-import static ua.training.Constants.*;
+import static ua.training.util.Constants.*;
 import static ua.training.StringUtils.*;
 
 /**
@@ -20,7 +19,7 @@ public class Controller extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        super.init();
+        // super.init();
     }
 
 
@@ -32,15 +31,22 @@ public class Controller extends HttpServlet {
             String login = httpServletRequest.getParameter(LOGIN_PARAMETER);
             String email = httpServletRequest.getParameter(EMAIL_PARAMETER);
             String password = httpServletRequest.getParameter(PASSWORD_PARAMETER);
-            UserService userService = new UserService();
-            User user = new User(login, email, password);
-            userService.addUser(user);
-            User savedUser = userService.getUser(user.getUserName());
-            httpServletRequest.setAttribute(USER, savedUser);
-            page = WELCOME_PAGE;
+            UtilityController utilityController = new UtilityController();
+
+            if (utilityController.isDataValid(login, email)) {
+                UserService userService = new UserService();
+                User user = new User(login, email, password);
+                userService.addUser(user);
+                User savedUser = userService.getUser(user.getUserName());
+                httpServletRequest.setAttribute(USER, savedUser);
+                page = WELCOME_PAGE;
+            } else {
+                httpServletRequest.setAttribute(MESSAGE, INVALID_MESSAGE);
+                page = INDEX_PAGE;
+            }
         } catch (UserAlreadyExistException e) {
             e.printStackTrace();
-            httpServletRequest.setAttribute(MESSAGE, concatenate(e.getMessage(),EXISTENCE_USER));
+            httpServletRequest.setAttribute(MESSAGE, concatenate(e.getMessage(), EXISTENCE_USER));
             page = INDEX_PAGE;
         }
         RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(page);

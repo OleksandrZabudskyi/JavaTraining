@@ -1,4 +1,4 @@
-package ua.training;
+package ua.training.util;
 
 public interface Constants {
     String SPACE_SIGN = " ";
@@ -16,7 +16,7 @@ public interface Constants {
     String INVALID_MESSAGE = "Input data is not equal to pattern ";
     String EXISTENCE_USER = " user already exist. Please try another name";
     String WELCOME_PAGE = "/welcome.jsp";
-    String INDEX_PAGE = "/index.jsp";
+    String INDEX_PAGE = "/registration.jsp";
     String USER = "user";
 
 }
