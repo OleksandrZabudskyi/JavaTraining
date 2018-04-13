@@ -2,6 +2,7 @@ package ua.training.model;
 
 import sun.misc.BASE64Encoder;
 import ua.training.exeptions.UserAlreadyExistException;
+import ua.training.model.dao.DaoFactory;
 import ua.training.model.dao.UserDao;
 import ua.training.model.entity.User;
 
@@ -19,7 +20,8 @@ public class UserService {
     private UserDao userDao;
 
     public UserService() {
-        this.userDao = new UserDao();
+        DaoFactory daoFactory = DaoFactory.getInstance();
+        this.userDao = daoFactory.createUserDao();
     }
 
     public void addUser(User user) throws UserAlreadyExistException {
@@ -27,7 +29,7 @@ public class UserService {
             return;
         }
         user.setPassword(makePasswordHash(user.getPassword(), Integer.toString(getRandom().nextInt())));
-        userDao.insertUser(user);
+        userDao.create(user);
         printSavedUserToConsole(user);
     }
 
@@ -36,7 +38,7 @@ public class UserService {
     }
 
     public List<User> getUsers() {
-        return userDao.findAllUsers();
+        return userDao.findAll();
     }
 
     private void printSavedUserToConsole(User user) {

@@ -1,4 +1,7 @@
-package ua.training.model.dao;
+package ua.training.model.dao.impl;
+
+import ua.training.model.dao.DaoFactory;
+import ua.training.model.dao.UserDao;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,9 +10,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class DBConnection {
+public class JDBCDaoFactory extends DaoFactory {
 
-    public static Connection getConnection() {
+    @Override
+    public UserDao createUserDao() {
+        return new UserDaoImpl(getConnection());
+    }
+
+    private Connection getConnection() {
         Properties properties = new Properties();
         InputStream inputStream;
         Connection connection = null;
@@ -23,7 +31,7 @@ public class DBConnection {
                     properties.getProperty("DB_USERNAME"),
                     properties.getProperty("DB_PASSWORD"));
         } catch (IOException | ClassNotFoundException | SQLException e) {
-            // TODO Auto-generated catch block
+            // TODO Add to log file
             e.printStackTrace();
         }
         return connection;
