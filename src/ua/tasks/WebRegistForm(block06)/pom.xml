@@ -46,7 +46,7 @@
         <version>2.2</version>
         <configuration>
           <port>8888</port>
-          <path>/</path>
+          <path>/app</path>
         </configuration>
       </plugin>
       <plugin>
