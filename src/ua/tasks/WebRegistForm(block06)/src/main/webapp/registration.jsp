@@ -28,14 +28,15 @@
 
 <div class="container">
 
-    <form method="POST" name="registrationForm" class="form-signin" action="${contextPath}/registration">
+    <form method="POST" name="registrationForm" class="form-signin" action="${contextPath}/app/registration">
         <h2 class="form-signin-heading">Create your account</h2>
         <div class="form-group">
-            <input type="text" class="form-control" name="username" placeholder="Username" autofocus="true"/>
+            <p style="color:red;"> ${message}</p>
+            <input type="text" class="form-control" name="username" placeholder="Username"/>
         </div>
 
         <div class="form-group">
-            <input type="text" class="form-control" name="email" placeholder="Email" autofocus="true"/>
+            <input type="text" class="form-control" name="email" placeholder="Email"/>
         </div>
 
         <div class="form-group">
@@ -47,9 +48,9 @@
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-        <h4 class="text-center"><a href="${contextPath}/login">Login</a></h4>
+        <h4 class="text-center"><a href="${contextPath}/login.jsp">Login</a></h4>
         </form>
-    <p> ${message}</p>
+
 </div>
 
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
