@@ -9,7 +9,7 @@ public interface UserDao extends AutoCloseable {
     User findByName(String name);
     List<User> findAll();
     void create(User user) throws UserAlreadyExistException;
-    void delete(int id);
+    void delete(String name);
     void update(User user);
 
 }
