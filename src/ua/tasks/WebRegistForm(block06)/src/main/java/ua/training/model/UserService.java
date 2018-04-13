@@ -33,6 +33,13 @@ public class UserService {
         printSavedUserToConsole(user);
     }
 
+    public void delete(String userName) {
+        if (userName == null) {
+            return;
+        }
+        userDao.delete(userName);
+    }
+
     public User getUser(String userName) {
         return userDao.findByName(userName);
     }
@@ -70,4 +77,5 @@ public class UserService {
         }
         return result;
     }
+
 }

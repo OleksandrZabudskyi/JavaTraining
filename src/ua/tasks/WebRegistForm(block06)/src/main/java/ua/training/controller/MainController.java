@@ -1,8 +1,6 @@
 package ua.training.controller;
 
-import ua.training.controller.command.Command;
-import ua.training.controller.command.LoginCommand;
-import ua.training.controller.command.RegistrationCommand;
+import ua.training.controller.command.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,20 +17,27 @@ public class MainController extends HttpServlet {
 
     @Override
     public void init() {
-        commands.put("login", new LoginCommand());
-        commands.put("registration", new RegistrationCommand());
+        commands.put("login", new Login());
+        commands.put("registration", new Registration());
+        commands.put("delete", new Delete());
     }
 
 
     private void processRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
             throws ServletException, IOException {
         String page;
-        String path = httpServletRequest.getRequestURI();
-        path = path.replaceAll(".*/app/" , "");
-        Command command = commands.getOrDefault(path , (r, rs)->"/login.jsp");
+        String action = httpServletRequest.getParameter("act");
+        Command command = commands.getOrDefault(action, new NoCommand());
         page = command.execute(httpServletRequest, httpServletResponse);
         RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(page);
         dispatcher.forward(httpServletRequest, httpServletResponse);
+       /* String page;
+        String path = httpServletRequest.getRequestURI();*/
+       // path = path.replaceAll(".*/app/" , "");
+       // Command command = commands.getOrDefault(path , (r, rs)->"/login.jsp");
+       // page = command.execute(httpServletRequest, httpServletResponse);
+       // RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(page);
+       // dispatcher.forward(httpServletRequest, httpServletResponse);
     }
 
     @Override

@@ -12,6 +12,7 @@ public interface Constants {
     //Messages
     String INVALID_MESSAGE = "Input data is not equal to pattern ";
     String EXISTENCE_USER = " user already exist. Please try another name";
+    String SUCCESS_REMOVED ="User successfully removed";
 
     //pages
     String WELCOME_PAGE = "/welcome.jsp";
