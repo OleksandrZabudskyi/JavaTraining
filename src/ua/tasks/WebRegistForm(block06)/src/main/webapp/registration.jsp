@@ -28,7 +28,7 @@
 
 <div class="container">
 
-    <form method="POST" name="registrationForm" class="form-signin" action="${contextPath}/app/registration">
+    <form method="POST" name="registrationForm" class="form-signin" action="${contextPath}/controller?act=registration">
         <h2 class="form-signin-heading">Create your account</h2>
         <div class="form-group">
             <p style="color:red;"> ${message}</p>

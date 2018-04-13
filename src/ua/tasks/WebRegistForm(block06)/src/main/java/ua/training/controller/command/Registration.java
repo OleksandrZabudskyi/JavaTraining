@@ -14,7 +14,7 @@ import static ua.training.util.StringUtils.concatenate;
 import static ua.training.util.Constants.*;
 import static ua.training.util.Constants.INDEX_PAGE;
 
-public class RegistrationCommand implements Command {
+public class Registration implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page;
