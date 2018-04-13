@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static ua.training.StringUtils.concatenate;
+import static ua.training.util.StringUtils.concatenate;
 import static ua.training.util.Constants.*;
 import static ua.training.util.Constants.INDEX_PAGE;
 
