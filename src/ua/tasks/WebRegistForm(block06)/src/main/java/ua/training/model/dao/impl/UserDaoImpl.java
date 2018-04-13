@@ -37,9 +37,9 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void delete(int id) {
-        try (PreparedStatement stmt = connection.prepareStatement(SQLQueries.DELETE_BY_ID)) {
-            stmt.setInt(1, id);
+    public void delete(String name) {
+        try (PreparedStatement stmt = connection.prepareStatement(SQLQueries.DELETE_BY_NAME)) {
+            stmt.setString(1, name);
             stmt.executeUpdate();
         } catch (SQLException e) {
             logger.error(e.getMessage());

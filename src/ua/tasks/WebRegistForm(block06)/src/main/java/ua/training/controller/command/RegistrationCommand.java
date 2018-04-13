@@ -41,7 +41,6 @@ public class RegistrationCommand implements Command {
             request.setAttribute(MESSAGE, concatenate(e.getMessage(), EXISTENCE_USER));
             page = INDEX_PAGE;
         }
-
         return page;
     }
 }
