@@ -31,13 +31,6 @@ public class MainController extends HttpServlet {
         page = command.execute(httpServletRequest, httpServletResponse);
         RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(page);
         dispatcher.forward(httpServletRequest, httpServletResponse);
-       /* String page;
-        String path = httpServletRequest.getRequestURI();*/
-       // path = path.replaceAll(".*/app/" , "");
-       // Command command = commands.getOrDefault(path , (r, rs)->"/login.jsp");
-       // page = command.execute(httpServletRequest, httpServletResponse);
-       // RequestDispatcher dispatcher = httpServletRequest.getRequestDispatcher(page);
-       // dispatcher.forward(httpServletRequest, httpServletResponse);
     }
 
     @Override
