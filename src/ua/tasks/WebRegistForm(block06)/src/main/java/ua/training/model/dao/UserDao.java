@@ -5,15 +5,8 @@ import ua.training.model.entity.User;
 
 import java.util.List;
 
-public interface UserDao extends AutoCloseable {
+public interface UserDao extends GenericDao<User> {
     User findByName(String name);
 
-    List<User> findAll();
-
-    void create(User user) throws UserAlreadyExistException;
-
     void delete(String name);
-
-    void update(User user);
-
 }
