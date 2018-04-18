@@ -28,7 +28,6 @@ public class UserDaoImpl implements UserDao {
             stmt.setString(3, user.getPassword());
             stmt.executeUpdate();
         } catch (SQLIntegrityConstraintViolationException e) {
-            logger.error(e.getMessage());
             throw new UserAlreadyExistException(user.getUserName());
         } catch (SQLException e) {
             logger.error(e.getMessage());
@@ -58,6 +57,17 @@ public class UserDaoImpl implements UserDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void delete(int id) {
+        //TODO
+    }
+
+    @Override
+    public User findById(int id) {
+        //TODO
+        return new User();
     }
 
     @Override
