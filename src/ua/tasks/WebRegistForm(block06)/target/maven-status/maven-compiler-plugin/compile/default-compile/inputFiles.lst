@@ -17,5 +17,6 @@
 /home/alex/JavaTraining/src/ua/tasks/WebRegistForm(block06)/src/main/java/ua/training/util/Regex.java
 /home/alex/JavaTraining/src/ua/tasks/WebRegistForm(block06)/src/main/java/ua/training/model/dao/impl/UserDaoImpl.java
 /home/alex/JavaTraining/src/ua/tasks/WebRegistForm(block06)/src/main/java/ua/training/model/dao/impl/CarDriverDao.java
+/home/alex/JavaTraining/src/ua/tasks/WebRegistForm(block06)/src/main/java/ua/training/model/dao/GenericDao.java
 /home/alex/JavaTraining/src/ua/tasks/WebRegistForm(block06)/src/main/java/ua/training/util/StringUtils.java
 /home/alex/JavaTraining/src/ua/tasks/WebRegistForm(block06)/src/main/java/ua/training/model/dao/impl/JDBCDaoFactory.java
